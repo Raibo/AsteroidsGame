@@ -1,28 +1,27 @@
-﻿using Hudossay.Asteroids.Assets.Scripts.GameEntities;
+﻿using Assets.Scripts.Wrappers;
+using Hudossay.Asteroids.Assets.Scripts.GameEntities;
 using Hudossay.Asteroids.Assets.Scripts.Wrappers;
 using UnityEngine;
 
 namespace Hudossay.Asteroids.Assets.Scripts.EntityHolders
 {
     [RequireComponent(typeof(RigidBodyWrapper))]
+    [RequireComponent(typeof(UserInputWrapper))]
     public class MotionControllerHolder : MonoBehaviour
     {
         public RigidBodyWrapper RigidBodyWrapper;
+        public UserInputWrapper UserInputWrapper;
         public float SteeringSpeed;
         public float Acceleration;
         public float MaxSpeed;
 
-        private MotionController _motionController;
+        public MotionController _motionController;
 
 
-        public void Awake() =>
-            _motionController = new MotionController(RigidBodyWrapper, SteeringSpeed, Acceleration, MaxSpeed);
-
-
-        private void Update()
+        public void Awake()
         {
-            CheckKeyDown();
-            CheckKeyUp();
+            _motionController = new MotionController(RigidBodyWrapper, UserInputWrapper,
+                SteeringSpeed, Acceleration, MaxSpeed);
         }
 
 
@@ -30,33 +29,10 @@ namespace Hudossay.Asteroids.Assets.Scripts.EntityHolders
             _motionController.Update(Time.deltaTime);
 
 
-        private void CheckKeyDown()
+        private void OnValidate()
         {
-            if (Input.GetKeyDown(KeyCode.A))
-                _motionController.StartSteeringLeft();
-
-            if (Input.GetKeyDown(KeyCode.D))
-                _motionController.StartSteeringRight();
-
-            if (Input.GetKeyDown(KeyCode.W))
-                _motionController.StartAccelerating();
-        }
-
-
-        private void CheckKeyUp()
-        {
-            if (Input.GetKeyUp(KeyCode.A))
-                _motionController.StopSteeringLeft();
-
-            if (Input.GetKeyUp(KeyCode.D))
-                _motionController.StopSteeringRight();
-
-            if (Input.GetKeyUp(KeyCode.W))
-                _motionController.StopAccelerating();
-        }
-
-
-        private void OnValidate() =>
             RigidBodyWrapper = GetComponent<RigidBodyWrapper>();
+            UserInputWrapper = GetComponent<UserInputWrapper>();
+        }
     }
 }

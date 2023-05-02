@@ -1,4 +1,5 @@
-﻿using Hudossay.Asteroids.Assets.Scripts.EngineIndependent.DataStructs;
+﻿using Assets.Scripts.EngineIndependent.GameLogicInterfaces;
+using Hudossay.Asteroids.Assets.Scripts.EngineIndependent.DataStructs;
 using Hudossay.Asteroids.Assets.Scripts.EngineIndependent.GameLogicInterfaces;
 
 namespace Hudossay.Asteroids.Assets.Scripts.GameEntities
@@ -6,17 +7,17 @@ namespace Hudossay.Asteroids.Assets.Scripts.GameEntities
     public class MotionController
     {
         private readonly IPhysicsObject _physicsObject;
+        private readonly IControlInputProvider _controlInputProvider;
         private readonly float _steeringSpeed;
         private readonly float _acceleration;
         private readonly float _maxSpeed;
 
-        private SteeringDirection _steeringDirection = SteeringDirection.None;
-        private bool _isAccelerating;
 
-
-        public MotionController(IPhysicsObject physicsObject, float steeringSpeed, float acceleration, float maxSpeed)
+        public MotionController(IPhysicsObject physicsObject, IControlInputProvider controlInputProvider,
+            float steeringSpeed, float acceleration, float maxSpeed)
         {
             _physicsObject = physicsObject;
+            _controlInputProvider = controlInputProvider;
             _steeringSpeed = steeringSpeed;
             _acceleration = acceleration;
             _maxSpeed = maxSpeed;
@@ -30,33 +31,9 @@ namespace Hudossay.Asteroids.Assets.Scripts.GameEntities
         }
 
 
-        public void StartSteeringLeft() =>
-            _steeringDirection |= SteeringDirection.Left;
-
-
-        public void StartSteeringRight() =>
-            _steeringDirection |= SteeringDirection.Right;
-
-
-        public void StopSteeringLeft() =>
-            _steeringDirection &= ~SteeringDirection.Left;
-
-
-        public void StopSteeringRight() =>
-            _steeringDirection &= ~SteeringDirection.Right;
-
-
-        public void StartAccelerating() =>
-            _isAccelerating = true;
-
-
-        public void StopAccelerating() =>
-            _isAccelerating = false;
-
-
         private void RotateBySteering(float time)
         {
-            switch (_steeringDirection)
+            switch (_controlInputProvider.SteeringDirection)
             {
                 case SteeringDirection.None:
                 case SteeringDirection.All:
@@ -73,7 +50,7 @@ namespace Hudossay.Asteroids.Assets.Scripts.GameEntities
 
         private void Accelerate(float time)
         {
-            if (!_isAccelerating)
+            if (!_controlInputProvider.IsAccelerating)
                 return;
 
             _physicsObject.PushForward(time * _acceleration);
