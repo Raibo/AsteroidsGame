@@ -46,10 +46,10 @@ namespace Hudossay.Asteroids.Assets.Scripts.EntityHolders
         private void CheckKeyUp()
         {
             if (Input.GetKeyUp(KeyCode.A))
-                _motionController.StopSteering();
+                _motionController.StopSteeringLeft();
 
             if (Input.GetKeyUp(KeyCode.D))
-                _motionController.StopSteering();
+                _motionController.StopSteeringRight();
 
             if (Input.GetKeyUp(KeyCode.W))
                 _motionController.StopAccelerating();

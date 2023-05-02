@@ -31,15 +31,19 @@ namespace Hudossay.Asteroids.Assets.Scripts.GameEntities
 
 
         public void StartSteeringLeft() =>
-            _steeringDirection = SteeringDirection.Left;
+            _steeringDirection |= SteeringDirection.Left;
 
 
         public void StartSteeringRight() =>
-            _steeringDirection = SteeringDirection.Right;
+            _steeringDirection |= SteeringDirection.Right;
 
 
-        public void StopSteering() =>
-            _steeringDirection = SteeringDirection.None;
+        public void StopSteeringLeft() =>
+            _steeringDirection &= ~SteeringDirection.Left;
+
+
+        public void StopSteeringRight() =>
+            _steeringDirection &= ~SteeringDirection.Right;
 
 
         public void StartAccelerating() =>
@@ -55,6 +59,7 @@ namespace Hudossay.Asteroids.Assets.Scripts.GameEntities
             switch (_steeringDirection)
             {
                 case SteeringDirection.None:
+                case SteeringDirection.All:
                     return;
                 case SteeringDirection.Left:
                     _physicsObject.Rotation += time * _steeringSpeed;
