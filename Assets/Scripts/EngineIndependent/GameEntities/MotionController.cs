@@ -1,5 +1,5 @@
-﻿using Hudossay.Asteroids.Assets.Scripts.DataStructs;
-using Hudossay.Asteroids.Assets.Scripts.GameLogicInterfaces;
+﻿using Hudossay.Asteroids.Assets.Scripts.EngineIndependent.DataStructs;
+using Hudossay.Asteroids.Assets.Scripts.EngineIndependent.GameLogicInterfaces;
 
 namespace Hudossay.Asteroids.Assets.Scripts.GameEntities
 {
@@ -8,16 +8,18 @@ namespace Hudossay.Asteroids.Assets.Scripts.GameEntities
         private readonly IPhysicsObject _physicsObject;
         private readonly float _steeringSpeed;
         private readonly float _acceleration;
+        private readonly float _maxSpeed;
 
         private SteeringDirection _steeringDirection = SteeringDirection.None;
         private bool _isAccelerating;
 
 
-        public MotionController(IPhysicsObject physicsObject, float steeringSpeed, float acceleration)
+        public MotionController(IPhysicsObject physicsObject, float steeringSpeed, float acceleration, float maxSpeed)
         {
             _physicsObject = physicsObject;
             _steeringSpeed = steeringSpeed;
             _acceleration = acceleration;
+            _maxSpeed = maxSpeed;
         }
 
 
@@ -44,7 +46,7 @@ namespace Hudossay.Asteroids.Assets.Scripts.GameEntities
             _isAccelerating = true;
 
 
-        public void StopAcceleration() =>
+        public void StopAccelerating() =>
             _isAccelerating = false;
 
 
@@ -55,10 +57,10 @@ namespace Hudossay.Asteroids.Assets.Scripts.GameEntities
                 case SteeringDirection.None:
                     return;
                 case SteeringDirection.Left:
-                    _physicsObject.Rotation -= time * _steeringSpeed;
+                    _physicsObject.Rotation += time * _steeringSpeed;
                     break;
                 case SteeringDirection.Right:
-                    _physicsObject.Rotation += time * _steeringSpeed;
+                    _physicsObject.Rotation -= time * _steeringSpeed;
                     break;
             }
         }
@@ -70,6 +72,7 @@ namespace Hudossay.Asteroids.Assets.Scripts.GameEntities
                 return;
 
             _physicsObject.PushForward(time * _acceleration);
+            _physicsObject.EnforceSpeedLimit(_maxSpeed);
         }
     }
 }
