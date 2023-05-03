@@ -1,7 +1,9 @@
-﻿namespace Hudossay.Asteroids.Assets.Scripts.EngineIndependent.GameLogicInterfaces
+﻿using Assets.Scripts.EngineIndependent.DataStructs;
+
+namespace Hudossay.Asteroids.Assets.Scripts.EngineIndependent.GameLogicInterfaces
 {
     public interface ICollidable
     {
-        void CollideWith(ICollidable otherCollidable);
+        void CollideWith(CollisionLayer collisionLayer);
     }
 }

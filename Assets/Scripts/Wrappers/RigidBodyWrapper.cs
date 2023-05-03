@@ -1,6 +1,7 @@
 ﻿using Hudossay.Asteroids.Assets.Scripts.EngineIndependent.GameLogicInterfaces;
 using UnityEngine;
-using MyVector2 = Hudossay.Asteroids.Assets.Scripts.EngineIndependent.DataStructs.Vector2;
+using Assets.Scripts.Extensions;
+using AsteroidsVector2 = Hudossay.Asteroids.Assets.Scripts.EngineIndependent.DataStructs.Vector2;
 using UnityVector2 = UnityEngine.Vector2;
 
 namespace Hudossay.Asteroids.Assets.Scripts.Wrappers
@@ -8,18 +9,16 @@ namespace Hudossay.Asteroids.Assets.Scripts.Wrappers
     [RequireComponent(typeof(Rigidbody2D))]
     public class RigidBodyWrapper : MonoBehaviour, IPhysicsObject
     {
+        public Transform Transform;
         public Rigidbody2D Rigidbody2D;
 
-        public MyVector2 Position
+        public AsteroidsVector2 Position
         {
-            get => new(Rigidbody2D.position.x, Rigidbody2D.position.y);
-
-            set
-            {
-                var newPosition = new UnityVector2(value.X, value.Y);
-                Rigidbody2D.position = newPosition;
-            }
+            get => Rigidbody2D.position.ToAsteroidsVector2();
+            set => Rigidbody2D.position = value.ToUnityVector2();
         }
+
+        public AsteroidsVector2 Direction => ((UnityVector2)transform.up).ToAsteroidsVector2();
 
         public float Rotation
         {
@@ -27,15 +26,10 @@ namespace Hudossay.Asteroids.Assets.Scripts.Wrappers
             set => Rigidbody2D.rotation = value;
         }
 
-        public MyVector2 Velocity
+        public AsteroidsVector2 Velocity
         {
-            get => new(Rigidbody2D.velocity.x, Rigidbody2D.velocity.y);
-
-            set
-            {
-                var newVelocity = new UnityVector2(value.X, value.Y);
-                Rigidbody2D.velocity = newVelocity;
-            }
+            get => Rigidbody2D.velocity.ToAsteroidsVector2();
+            set => Rigidbody2D.velocity = value.ToUnityVector2();
         }
 
         public void PushForward(float additionalSpeed) =>
@@ -51,7 +45,10 @@ namespace Hudossay.Asteroids.Assets.Scripts.Wrappers
         }
 
 
-        private void OnValidate() =>
+        private void OnValidate()
+        {
+            Transform = transform;
             Rigidbody2D = GetComponent<Rigidbody2D>();
+        }
     }
 }

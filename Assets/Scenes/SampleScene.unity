@@ -221,6 +221,9 @@ GameObject:
   - component: {fileID: 1445721098}
   - component: {fileID: 1445721097}
   - component: {fileID: 1445721100}
+  - component: {fileID: 1445721101}
+  - component: {fileID: 1445721103}
+  - component: {fileID: 1445721102}
   m_Layer: 0
   m_Name: Ship
   m_TagString: Untagged
@@ -308,6 +311,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RigidBodyWrapper: {fileID: 1445721098}
+  UserInputWrapper: {fileID: 1445721101}
   SteeringSpeed: 200
   Acceleration: 5
   MaxSpeed: 10
@@ -323,6 +327,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e82a5c2fd30d4e45bf3f0ca8bfd2870, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Transform: {fileID: 1445721095}
   Rigidbody2D: {fileID: 1445721099}
 --- !u!50 &1445721099
 Rigidbody2D:
@@ -363,3 +368,46 @@ MonoBehaviour:
     XMax: 9
     YMin: -5
     YMax: 5
+--- !u!114 &1445721101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1445721094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1b65bf553ae6a5418b3e022f39ede1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1445721102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1445721094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c6c74fd06b2baf4fb06dbe849a25435, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UserInputWrapper: {fileID: 1445721101}
+  RigidBodyWrapper: {fileID: 1445721098}
+  AmmoHolder: {fileID: 1445721103}
+--- !u!114 &1445721103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1445721094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff6219ae8523eb14e9b37144ffbd12e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaximumCharges: 2
+  InitialCharges: 2
+  CooldownTime: 0.3
+  GainChargeTime: 0

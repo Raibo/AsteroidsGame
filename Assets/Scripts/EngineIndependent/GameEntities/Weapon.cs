@@ -1,42 +1,28 @@
-﻿using Hudossay.Asteroids.Assets.Scripts.EngineIndependent.GameLogicInterfaces;
-using System;
+﻿using Assets.Scripts.EngineIndependent.GameLogicInterfaces;
+using Hudossay.Asteroids.Assets.Scripts.EngineIndependent.GameLogicInterfaces;
 
 namespace Assets.Scripts.EngineIndependent.GameEntities
 {
-    public abstract class Weapon : IWeapon, IDisposable
+    public abstract class Weapon : IWeapon
     {
-        private readonly IAmmoProvider _ammoProvider;
-        private bool _isShooting;
+        protected readonly IAmmoProvider _ammoProvider;
+        protected readonly IControlInputProvider _controlInputProvider;
+        protected readonly IPhysicsObject _originObject;
+
+        protected abstract bool IsShooting { get; }
 
 
-        public Weapon(IAmmoProvider ammoProvider)
+        public Weapon(IAmmoProvider ammoProvider, IControlInputProvider controlInputProvider, IPhysicsObject originObject)
         {
             _ammoProvider = ammoProvider;
-            _ammoProvider.ChargeReady += OnChargeReady;
-        }
-
-        public void StartShooting()
-        {
-            _isShooting = true;
-
-            if (_ammoProvider.TryUseCharge())
-                PerformShot();
+            _controlInputProvider = controlInputProvider;
+            _originObject = originObject;
         }
 
 
-        public void StopShooting()
+        public void Update()
         {
-            _isShooting = false;
-        }
-
-
-        public void Dispose() =>
-            _ammoProvider.ChargeReady -= OnChargeReady;
-
-
-        private void OnChargeReady()
-        {
-            if (_isShooting && _ammoProvider.TryUseCharge())
+            if (IsShooting && _ammoProvider.TryUseCharge())
                 PerformShot();
         }
 
