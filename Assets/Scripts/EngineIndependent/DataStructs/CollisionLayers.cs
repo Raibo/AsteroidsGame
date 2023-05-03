@@ -3,7 +3,7 @@
 namespace Assets.Scripts.EngineIndependent.DataStructs
 {
     [Flags]
-    public enum CollisionLayer
+    public enum CollisionLayers
     {
         None = 0,
         PlayerShip = 1 << 0,

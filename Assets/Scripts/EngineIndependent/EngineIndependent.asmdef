@@ -1,6 +1,6 @@
 {
     "name": "EngineIndependent",
-    "rootNamespace": "",
+    "rootNamespace": "Hudossay.Asteroids.EngineIndependent",
     "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],

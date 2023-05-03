@@ -4,6 +4,6 @@ namespace Hudossay.Asteroids.Assets.Scripts.EngineIndependent.GameLogicInterface
 {
     public interface ICollidable
     {
-        void CollideWith(CollisionLayer collisionLayer);
+        void CollideWith(CollisionLayers collisionLayer);
     }
 }

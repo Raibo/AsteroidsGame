@@ -15,7 +15,7 @@ namespace Hudossay.Asteroids.Assets.Scripts.EntityHolders
         public float Acceleration;
         public float MaxSpeed;
 
-        public MotionController _motionController;
+        private MotionController _motionController;
 
 
         public void Awake()

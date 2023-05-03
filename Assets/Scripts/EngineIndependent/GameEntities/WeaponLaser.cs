@@ -9,7 +9,7 @@ namespace Assets.Scripts.EngineIndependent.GameEntities
         private readonly ILaserColliderProvider _laserColliderProvider;
         private readonly float _laserWidth;
 
-        private const CollisionLayer LaserCollisionLayer = CollisionLayer.Laser;
+        private const CollisionLayers LaserCollisionLayer = CollisionLayers.Laser;
 
         protected override bool IsShooting => _controlInputProvider.IsShootingLaser;
 

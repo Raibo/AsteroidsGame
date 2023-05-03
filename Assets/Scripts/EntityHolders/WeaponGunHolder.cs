@@ -16,7 +16,7 @@ namespace Assets.Scripts.EntityHolders
         public string LinkedAmmoDesctiption;
 #endif
 
-        public IWeapon Weapon;
+        private IWeapon _weapon;
 
         [Space(15)]
         public UserInputWrapper UserInputWrapper;
@@ -26,11 +26,11 @@ namespace Assets.Scripts.EntityHolders
 
 
         private void Awake() =>
-            Weapon = new WeaponGun(AmmoHolder.AmmoProvider, UserInputWrapper, RigidBodyWrapper, BulletFactory);
+            _weapon = new WeaponGun(AmmoHolder.AmmoProvider, UserInputWrapper, RigidBodyWrapper, BulletFactory);
 
 
         private void FixedUpdate() =>
-            Weapon.Update();
+            _weapon.Update();
 
 
         private void OnValidate()
