@@ -1,15 +1,14 @@
 ﻿using Assets.Scripts.EngineIndependent.DataStructs;
 using Assets.Scripts.EngineIndependent.GameEntities;
 using Assets.Scripts.EngineIndependent.GameLogicInterfaces;
-using Assets.Scripts.Wrappers;
-using UnityEngine;
+using Assets.Scripts.Extensions;
+using Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.EntityHolders;
 
 namespace Assets.Scripts.EntityHolders
 {
-    [RequireComponent(typeof(DestroyableWrapper))]
-    public class DestroyOnCollisionHolder : CollisionHandlerHolder
+    public class GameOverOnCollisionHolder : CollisionHandlerHolder
     {
-        public DestroyableWrapper DestroyableWrapper;
+        public GameOverHandlerHolder GameOverHandlerHolder;
         public CollisionLayers DestroyedByLayers;
         public override ICollisionHandler CollisionHandler => _collisionHandler;
 
@@ -17,10 +16,10 @@ namespace Assets.Scripts.EntityHolders
 
 
         private void Awake() =>
-            _collisionHandler = new DestroyOnCollisionHandler(DestroyableWrapper, DestroyedByLayers);
+            _collisionHandler = new GameOverOnCollisionHandler(DestroyedByLayers, GameOverHandlerHolder.GameOverHandler);
 
 
         private void OnValidate() =>
-            DestroyableWrapper = GetComponent<DestroyableWrapper>();
+            this.NotifyFieldNotFilledInScene(GameOverHandlerHolder, nameof(GameOverHandlerHolder));
     }
 }

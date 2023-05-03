@@ -6,7 +6,7 @@ using UnityEngine;
 namespace Assets.Scripts.EntityHolders
 {
     [RequireComponent(typeof(RigidBodyWrapper))]
-    public class BulletInitializationHolder : InitializableHolder
+    public class BulletInitializationHolder : InitializableHolder, IInitializable
     {
         public RigidBodyWrapper RigidBodyWrapper;
         public float Speed;
@@ -15,8 +15,12 @@ namespace Assets.Scripts.EntityHolders
         private IInitializable _initializable;
 
 
+        public void Initialize() =>
+            _initializable.Initialize();
+
+
         private void Awake() =>
-            _initializable = new BulletInitializator(RigidBodyWrapper, Speed);
+            _initializable = new BulletInitializer(RigidBodyWrapper, Speed);
 
 
         private void OnValidate() =>

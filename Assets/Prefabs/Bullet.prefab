@@ -17,7 +17,9 @@ GameObject:
   - component: {fileID: 8297380087495482070}
   - component: {fileID: -3753454621408515458}
   - component: {fileID: -1424063124533145531}
-  m_Layer: 0
+  - component: {fileID: 4250120703025785638}
+  - component: {fileID: 2056075367665437984}
+  m_Layer: 7
   m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -196,3 +198,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RigidBodyWrapper: {fileID: 8297112833212302651}
   MapBordersProviderHolder: {fileID: 0}
+--- !u!114 &4250120703025785638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8297112833212302647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 802d993d59d6d5246962c6c62daaf81d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Collider: {fileID: 8297112833212302648}
+  CollisionHandlerHolder: {fileID: 2056075367665437984}
+  CollisionLayers: 2
+--- !u!114 &2056075367665437984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8297112833212302647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e1808189163c344b9846c732ce19823, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DestroyableWrapper: {fileID: 8297380087495482070}
+  ScoreCounterHolder: {fileID: 0}
+  ScoreForDestruction: 0
+  DestroyedByLayers: 12

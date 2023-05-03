@@ -8,7 +8,7 @@ namespace Assets.Scripts.Wrappers
     [RequireComponent(typeof(CollisionHandlerHolder))]
     public class ColliderWrapper : MonoBehaviour, ICollidable
     {
-        public Collider Collider;
+        public Collider2D Collider;
         public CollisionHandlerHolder CollisionHandlerHolder;
         public CollisionLayers CollisionLayers;
 
@@ -28,7 +28,7 @@ namespace Assets.Scripts.Wrappers
 
         private void OnValidate()
         {
-            Collider = GetComponent<Collider>();
+            Collider = GetComponent<Collider2D>();
             CollisionHandlerHolder = GetComponent<CollisionHandlerHolder>();
         }
     }

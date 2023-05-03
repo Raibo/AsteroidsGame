@@ -216,8 +216,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1045864917}
-  - component: {fileID: 1045864918}
   - component: {fileID: 1045864916}
+  - component: {fileID: 1045864918}
+  - component: {fileID: 1045864919}
   m_Layer: 0
   m_Name: GlobalObjectsHolder
   m_TagString: Untagged
@@ -265,10 +266,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 1045864915}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f158b5e14f783849991601c79efdfc5, type: 3}
+  m_Script: {fileID: 11500000, guid: 697917c433b2c6240836a0529307a7c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MapBordersProvider: {fileID: 1045864916}
+--- !u!114 &1045864919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1045864915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 859e12e465794514889a47e3464f2807, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ScoreCounterHolder: {fileID: 1045864918}
 --- !u!1 &1445721094
 GameObject:
   m_ObjectHideFlags: 0
@@ -280,6 +293,7 @@ GameObject:
   - component: {fileID: 1445721095}
   - component: {fileID: 1445721096}
   - component: {fileID: 1445721099}
+  - component: {fileID: 1445721106}
   - component: {fileID: 1445721098}
   - component: {fileID: 1445721097}
   - component: {fileID: 1445721100}
@@ -288,7 +302,9 @@ GameObject:
   - component: {fileID: 1445721104}
   - component: {fileID: 1445721102}
   - component: {fileID: 1445721105}
-  m_Layer: 0
+  - component: {fileID: 1445721107}
+  - component: {fileID: 1445721108}
+  m_Layer: 6
   m_Name: Ship
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -505,3 +521,61 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Prefab: {fileID: 8297112833212302647, guid: e7210f964c6574c44a924099480f3139, type: 3}
   MapBordersProviderHolder: {fileID: 1045864916}
+  ScoreCounterHolder: {fileID: 1045864918}
+--- !u!60 &1445721106
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1445721094}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.5, y: 0.5}
+    newSize: {x: 0.5, y: 0.5}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.25, y: -0.25}
+      - {x: 0.25, y: -0.25}
+      - {x: -0.006722441, y: 0.25}
+--- !u!114 &1445721107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1445721094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22f89de92e72eab4da360a6ca497847b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameOverHandlerHolder: {fileID: 1045864919}
+  DestroyedByLayers: 8
+--- !u!114 &1445721108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1445721094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 802d993d59d6d5246962c6c62daaf81d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Collider: {fileID: 1445721106}
+  CollisionHandlerHolder: {fileID: 1445721107}
+  CollisionLayers: 1

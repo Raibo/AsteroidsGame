@@ -33,8 +33,8 @@ namespace Assets.Scripts.EngineIndependent.GameEntities
         {
             var hitObjects = _laserColliderProvider.GetHitObjects(_originObject.Position, _originObject.Direction, _laserWidth);
 
-            for (int i = 0; i < hitObjects.Length; i++)
-                hitObjects[i].CollideWith(LaserCollisionLayer);
+            foreach (ICollidable collidable in hitObjects)
+                collidable.CollideWith(LaserCollisionLayer);
         }
     }
 }

@@ -1,6 +1,6 @@
 {
     "name": "Scripts",
-    "rootNamespace": "Hudossay.Asteroids",
+    "rootNamespace": "Hudossay.Asteroids.UnitySpecific",
     "references": [
         "GUID:2a07e4fd861138a4381333a8d606766e"
     ],

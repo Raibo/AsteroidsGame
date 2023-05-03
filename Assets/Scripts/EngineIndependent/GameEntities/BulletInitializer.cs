@@ -3,20 +3,20 @@ using Hudossay.Asteroids.Assets.Scripts.EngineIndependent.GameLogicInterfaces;
 
 namespace Assets.Scripts.EngineIndependent.GameEntities
 {
-    public class BulletInitializator : IInitializable
+    public class BulletInitializer : IInitializable
     {
         private readonly IPhysicsObject _physicsObject;
         private readonly float _speed;
 
 
-        public BulletInitializator(IPhysicsObject physicsObject, float speed)
+        public BulletInitializer(IPhysicsObject physicsObject, float speed)
         {
             _physicsObject = physicsObject;
             _speed = speed;
         }
 
 
-        public void Initialise() =>
+        public void Initialize() =>
             _physicsObject.PushForward(_speed);
     }
 }
