@@ -24,7 +24,7 @@ namespace Assets.Scripts.Wrappers
             physicsObject.Rotation = rotation;
             physicsObject.Velocity = velocity;
 
-            newObject.GetComponent<SpaceTeleporterHolder>().MapBordersProviderHolder = MapBordersProviderHolder;
+            newObject.GetComponent<MapBordersTeleporterHolder>().MapBordersProviderHolder = MapBordersProviderHolder;
             newObject.GetComponent<IInitializable>().Initialise();
         }
 

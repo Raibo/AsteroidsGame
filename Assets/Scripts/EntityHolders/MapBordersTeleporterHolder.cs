@@ -7,20 +7,20 @@ using UnityEngine;
 namespace Hudossay.Asteroids.Assets.Scripts.EntityHolders
 {
     [RequireComponent(typeof(RigidBodyWrapper))]
-    public class SpaceTeleporterHolder : MonoBehaviour
+    public class MapBordersTeleporterHolder : MonoBehaviour
     {
         public RigidBodyWrapper RigidBodyWrapper;
         public MapBordersProviderHolder MapBordersProviderHolder;
 
-        private SpaceTeleporter _spaceTeleporter;
+        private MapBordersTeleporter _mapBordersTeleporter;
 
 
         private void Start() =>
-            _spaceTeleporter = new SpaceTeleporter(RigidBodyWrapper, MapBordersProviderHolder.MapBordersProvider);
+            _mapBordersTeleporter = new MapBordersTeleporter(RigidBodyWrapper, MapBordersProviderHolder.MapBordersProvider);
 
 
         private void FixedUpdate() =>
-            _spaceTeleporter.Update();
+            _mapBordersTeleporter.Update();
 
 
         private void OnValidate()

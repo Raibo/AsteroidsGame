@@ -3,13 +3,13 @@ using Hudossay.Asteroids.Assets.Scripts.EngineIndependent.GameLogicInterfaces;
 
 namespace Hudossay.Asteroids.Assets.Scripts.EngineIndependent.GameEntities
 {
-    public class SpaceTeleporter
+    public class MapBordersTeleporter
     {
         private readonly IPhysicsObject _physicsObject;
         private readonly IMapBordersProvider _mapBordersProvider;
 
 
-        public SpaceTeleporter(IPhysicsObject physicsObject, IMapBordersProvider mapBordersProvider)
+        public MapBordersTeleporter(IPhysicsObject physicsObject, IMapBordersProvider mapBordersProvider)
         {
             _physicsObject = physicsObject;
             _mapBordersProvider = mapBordersProvider;
