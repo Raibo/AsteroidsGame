@@ -1,4 +1,4 @@
-﻿using Hudossay.Asteroids.Assets.Scripts.EngineIndependent.DataStructs;
+﻿using Assets.Scripts.EngineIndependent.GameLogicInterfaces;
 using Hudossay.Asteroids.Assets.Scripts.EngineIndependent.GameLogicInterfaces;
 
 namespace Hudossay.Asteroids.Assets.Scripts.EngineIndependent.GameEntities
@@ -6,31 +6,32 @@ namespace Hudossay.Asteroids.Assets.Scripts.EngineIndependent.GameEntities
     public class SpaceTeleporter
     {
         private readonly IPhysicsObject _physicsObject;
-        private Rectangle _rectangle;
+        private readonly IMapBordersProvider _mapBordersProvider;
 
 
-        public SpaceTeleporter(IPhysicsObject physicsObject, Rectangle rectangle)
+        public SpaceTeleporter(IPhysicsObject physicsObject, IMapBordersProvider mapBordersProvider)
         {
             _physicsObject = physicsObject;
-            _rectangle = rectangle;
+            _mapBordersProvider = mapBordersProvider;
         }
 
 
         public void Update()
         {
             var newPosition = _physicsObject.Position;
+            var borders = _mapBordersProvider.Borders;
 
-            if (_physicsObject.Position.X < _rectangle.XMin)
-                newPosition.X += _rectangle.Width;
+            if (_physicsObject.Position.X < borders.XMin)
+                newPosition.X += borders.Width;
 
-            if (_physicsObject.Position.Y < _rectangle.YMin)
-                newPosition.Y += _rectangle.Height;
+            if (_physicsObject.Position.Y < borders.YMin)
+                newPosition.Y += borders.Height;
 
-            if (_physicsObject.Position.X > _rectangle.XMax)
-                newPosition.X -= _rectangle.Width;
+            if (_physicsObject.Position.X > borders.XMax)
+                newPosition.X -= borders.Width;
 
-            if (_physicsObject.Position.Y > _rectangle.YMax)
-                newPosition.Y -= _rectangle.Height;
+            if (_physicsObject.Position.Y > borders.YMax)
+                newPosition.Y -= borders.Height;
 
             if (newPosition != _physicsObject.Position)
                 _physicsObject.Position = newPosition;

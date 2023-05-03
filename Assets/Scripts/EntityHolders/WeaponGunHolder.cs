@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.EngineIndependent.GameEntities;
+using Assets.Scripts.Extensions;
 using Assets.Scripts.Wrappers;
 using Hudossay.Asteroids.Assets.Scripts.EngineIndependent.GameLogicInterfaces;
 using Hudossay.Asteroids.Assets.Scripts.Wrappers;
@@ -21,10 +22,15 @@ namespace Assets.Scripts.EntityHolders
         public UserInputWrapper UserInputWrapper;
         public RigidBodyWrapper RigidBodyWrapper;
         public AmmoProviderHolder AmmoHolder;
+        public ObjectFactoryWrapper BulletFactory;
 
 
         private void Awake() =>
-            Weapon = new WeaponGun(AmmoHolder.AmmoProvider, UserInputWrapper, RigidBodyWrapper, null);
+            Weapon = new WeaponGun(AmmoHolder.AmmoProvider, UserInputWrapper, RigidBodyWrapper, BulletFactory);
+
+
+        private void FixedUpdate() =>
+            Weapon.Update();
 
 
         private void OnValidate()
@@ -32,15 +38,12 @@ namespace Assets.Scripts.EntityHolders
             UserInputWrapper = GetComponent<UserInputWrapper>();
             RigidBodyWrapper = GetComponent<RigidBodyWrapper>();
 
-            if (AmmoHolder == null)
-            {
-                Debug.LogWarning($"Component {nameof(WeaponGunHolder)} of GameObject {gameObject.name} need value for its {nameof(AmmoHolder)}");
-                LinkedAmmoDesctiption = string.Empty;
-            }
-            else
-            {
-                LinkedAmmoDesctiption = AmmoHolder.DeveloperDescription;
-            }
+            this.NotifyFieldNotFilled(AmmoHolder, nameof(AmmoHolder));
+            this.NotifyFieldNotFilled(BulletFactory, nameof(BulletFactory));
+
+            LinkedAmmoDesctiption = AmmoHolder == null
+                ? string.Empty
+                : AmmoHolder.DeveloperDescription;
         }
     }
 }

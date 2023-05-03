@@ -17,10 +17,23 @@ namespace Assets.Scripts.EntityHolders
         public float CooldownTime;
         public float GainChargeTime;
 
-        public IAmmoProvider AmmoProvider;
+        private IAmmoProvider _ammoProvider;
+
+        public IAmmoProvider AmmoProvider => GetAmmoProvider();
 
 
         private void Awake() =>
-            AmmoProvider = new AmmoProvider(CooldownTime, GainChargeTime, MaximumCharges, InitialCharges);
+            GetAmmoProvider();
+
+
+        private void FixedUpdate() =>
+            _ammoProvider.Update(Time.deltaTime);
+
+
+        private IAmmoProvider GetAmmoProvider()
+        {
+            _ammoProvider ??= new AmmoProvider(CooldownTime, GainChargeTime, MaximumCharges, InitialCharges);
+            return _ammoProvider;
+        }
     }
 }

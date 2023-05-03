@@ -24,6 +24,6 @@ namespace Assets.Scripts.EngineIndependent.GameEntities
 
 
         protected override void PerformShot() =>
-            _bulletFactory.Create(_originObject.Position, _originObject.Rotation);
+            _bulletFactory.Create(_originObject.Position, _originObject.Velocity, _originObject.Rotation);
     }
 }

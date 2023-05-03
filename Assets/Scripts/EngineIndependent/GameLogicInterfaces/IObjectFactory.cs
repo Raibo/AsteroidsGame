@@ -4,6 +4,6 @@ namespace Hudossay.Asteroids.Assets.Scripts.EngineIndependent.GameLogicInterface
 {
     public interface IObjectFactory
     {
-        public void Create(Vector2 origin, float rotation);
+        public void Create(Vector2 origin, Vector2 velocity, float rotation);
     }
 }

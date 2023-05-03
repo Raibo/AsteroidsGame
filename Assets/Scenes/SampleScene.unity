@@ -207,6 +207,68 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1045864915
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1045864917}
+  - component: {fileID: 1045864918}
+  - component: {fileID: 1045864916}
+  m_Layer: 0
+  m_Name: GlobalObjectsHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1045864916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1045864915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 478f303ff267769478871b4468e9a334, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LeftBorder: -8.9
+  RightBorder: 8.9
+  BottomBorder: -5
+  TopBorder: 5
+--- !u!4 &1045864917
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1045864915}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1045864918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1045864915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f158b5e14f783849991601c79efdfc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MapBordersProvider: {fileID: 1045864916}
 --- !u!1 &1445721094
 GameObject:
   m_ObjectHideFlags: 0
@@ -223,7 +285,9 @@ GameObject:
   - component: {fileID: 1445721100}
   - component: {fileID: 1445721101}
   - component: {fileID: 1445721103}
+  - component: {fileID: 1445721104}
   - component: {fileID: 1445721102}
+  - component: {fileID: 1445721105}
   m_Layer: 0
   m_Name: Ship
   m_TagString: Untagged
@@ -244,7 +308,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1445721096
 SpriteRenderer:
@@ -363,11 +427,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RigidBodyWrapper: {fileID: 1445721098}
-  Rectangle:
-    XMin: -9
-    XMax: 9
-    YMin: -5
-    YMax: 5
+  MapBordersProviderHolder: {fileID: 1045864916}
 --- !u!114 &1445721101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -392,9 +452,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c6c74fd06b2baf4fb06dbe849a25435, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LinkedAmmoDesctiption: Ammo for the gun
   UserInputWrapper: {fileID: 1445721101}
   RigidBodyWrapper: {fileID: 1445721098}
   AmmoHolder: {fileID: 1445721103}
+  BulletFactory: {fileID: 1445721105}
 --- !u!114 &1445721103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -407,7 +469,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff6219ae8523eb14e9b37144ffbd12e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DeveloperDescription: Ammo for the gun
   MaximumCharges: 2
   InitialCharges: 2
   CooldownTime: 0.3
   GainChargeTime: 0
+--- !u!114 &1445721104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1445721094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff6219ae8523eb14e9b37144ffbd12e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DeveloperDescription: Ammo for the laser
+  MaximumCharges: 5
+  InitialCharges: 5
+  CooldownTime: 2
+  GainChargeTime: 5
+--- !u!114 &1445721105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1445721094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8bcc89ef9f819440af853d630e9f7fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Prefab: {fileID: 8297112833212302647, guid: e7210f964c6574c44a924099480f3139, type: 3}
+  MapBordersProviderHolder: {fileID: 1045864916}
