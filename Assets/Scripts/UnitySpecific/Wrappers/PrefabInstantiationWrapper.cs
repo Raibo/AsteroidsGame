@@ -41,6 +41,8 @@ namespace Assets.Scripts.Wrappers
 
             foreach (IInitializable initializable in _initializableBuffer)
                 initializable.Initialize();
+
+            EnemiesCounterHolder?.EnemiesCounter.IncreaseEnemyCount();
         }
 
 

@@ -4,8 +4,7 @@ namespace Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.
 {
     public interface IEnemiesCounter
     {
-        event Action AllEnemiesDestroyed;
-
+        public int Count { get; }
         void IncreaseEnemyCount();
         void DecreaseEnemyCount();
     }

@@ -11,15 +11,15 @@ GameObject:
   - component: {fileID: 8552059199170727945}
   - component: {fileID: 8552059199170727944}
   - component: {fileID: 8552059199170727951}
-  - component: {fileID: 8552059199170727941}
   - component: {fileID: 8552059199170727950}
+  - component: {fileID: 6970840515491839630}
   - component: {fileID: 8552059199170727940}
   - component: {fileID: 8552059199170727947}
   - component: {fileID: 8552059199170727946}
   - component: {fileID: -5441158118991071196}
   - component: {fileID: -3380498906978069545}
   m_Layer: 8
-  m_Name: Asteroid
+  m_Name: Saucer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -81,7 +81,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4bae4b1b262669148ae457fbba17ab92, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7ffa200e967d14d46942a9bc72580bf9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -113,22 +113,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &8552059199170727941
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8552059199170727949}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 1
 --- !u!114 &8552059199170727950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,6 +127,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Transform: {fileID: 8552059199170727945}
   Rigidbody2D: {fileID: 8552059199170727951}
+--- !u!70 &6970840515491839630
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8552059199170727949}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.08}
+  m_Size: {x: 0.92, y: 0.35}
+  m_Direction: 1
 --- !u!114 &8552059199170727940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,7 +184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 802d993d59d6d5246962c6c62daaf81d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Collider: {fileID: 8552059199170727941}
+  Collider: {fileID: 6970840515491839630}
   CollisionHandlerHolder: {fileID: 8552059199170727947}
   CollisionLayers: 8
 --- !u!114 &-5441158118991071196
@@ -214,7 +214,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RigidBodyWrapper: {fileID: 8552059199170727950}
-  MinimumSpeed: 2
-  MaximumSpeed: 4
+  MinimumSpeed: 0
+  MaximumSpeed: 0
   MinimumRotation: 0
-  MaximumRotation: 360
+  MaximumRotation: 0

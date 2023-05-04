@@ -24,7 +24,7 @@ namespace Assets.Scripts.EngineIndependent.GameEntities
         }
 
 
-        public void HandleCollision(CollisionLayers otherObjectCollisionLayers)
+        public virtual void HandleCollision(CollisionLayers otherObjectCollisionLayers)
         {
             if ((otherObjectCollisionLayers & _destroyingCollisionLayers) != CollisionLayers.None)
             {

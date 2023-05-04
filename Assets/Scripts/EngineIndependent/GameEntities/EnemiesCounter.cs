@@ -5,18 +5,13 @@ namespace Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.
 {
     public class EnemiesCounter : IEnemiesCounter
     {
-        public event Action AllEnemiesDestroyed;
+        public int Count => _count;
 
         private int _count;
 
 
-        public void DecreaseEnemyCount()
-        {
+        public void DecreaseEnemyCount() =>
             _count--;
-
-            if (_count <= 0)
-                AllEnemiesDestroyed?.Invoke();
-        }
 
 
         public void IncreaseEnemyCount() =>

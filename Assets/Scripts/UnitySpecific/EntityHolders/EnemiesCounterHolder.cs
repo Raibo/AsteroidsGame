@@ -6,10 +6,15 @@ namespace Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.EntityHo
 {
     public class EnemiesCounterHolder : MonoBehaviour
     {
-        public IEnemiesCounter EnemiesCounter;
+        public IEnemiesCounter EnemiesCounter => GetEnemiesCounter();
+
+        private IEnemiesCounter _enemiesCounter;
 
 
-        private void Awake() =>
-            EnemiesCounter = new EnemiesCounter();
+        private IEnemiesCounter GetEnemiesCounter()
+        {
+            _enemiesCounter ??= new EnemiesCounter();
+            return _enemiesCounter;
+        }
     }
 }
