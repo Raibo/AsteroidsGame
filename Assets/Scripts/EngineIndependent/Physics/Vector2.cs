@@ -41,6 +41,14 @@ namespace Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.
             !a.Equals(b);
 
 
+        public static Vector2 operator +(Vector2 vector1, Vector2 vector2) =>
+            new(vector1.X + vector2.X, vector1.Y + vector2.Y);
+
+
+        public static Vector2 operator -(Vector2 vector1, Vector2 vector2) =>
+            new(vector1.X - vector2.X, vector1.Y - vector2.Y);
+
+
         public static Vector2 operator *(float scalar, Vector2 vector) =>
             new(scalar * vector.X, scalar * vector.Y);
 
@@ -51,5 +59,9 @@ namespace Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.
 
         public static Vector2 operator /(Vector2 vector, float scalar) =>
             new(vector.X / scalar, vector.Y / scalar);
+
+
+        public override string ToString() =>
+            $"({X}, {Y})";
     }
 }

@@ -1119,13 +1119,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1891097160}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88ad09c2e6bed344f997bbe13e2394f4, type: 3}
+  m_Script: {fileID: 11500000, guid: dc7af7e0d477f73458b0b456462f974f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Prefab: {fileID: 8552059199170727949, guid: 3317c473e46c57d4991509f9da45e28d, type: 3}
   MapBordersProviderHolder: {fileID: 1045864916}
   ScoreCounterHolder: {fileID: 1045864918}
   EnemiesCounterHolder: {fileID: 1891097162}
+  HomingTargetPhysicsWrapper: {fileID: 1445721098}
 --- !u!1 &1931998758
 GameObject:
   m_ObjectHideFlags: 0

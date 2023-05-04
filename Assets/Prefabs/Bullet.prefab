@@ -157,7 +157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RigidBodyWrapper: {fileID: 8297112833212302651}
-  Speed: 8
+  Speed: 12
 --- !u!114 &8297380087495482070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,7 +182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10b6b03298e4dcc4886a8b50ff4e8227, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Lifetime: 2
+  Lifetime: 1
   Destroyable: {fileID: 8297380087495482070}
 --- !u!114 &-1424063124533145531
 MonoBehaviour:
@@ -227,5 +227,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DestroyableWrapper: {fileID: 8297380087495482070}
   ScoreCounterHolder: {fileID: 0}
+  EnemiesCounterHolder: {fileID: 0}
   ScoreForDestruction: 0
   DestroyedByLayers: 12

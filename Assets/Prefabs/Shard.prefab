@@ -214,7 +214,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RigidBodyWrapper: {fileID: 8552059199170727950}
-  MinimumSpeed: 1
-  MaximumSpeed: 2.5
+  MinimumSpeed: 0.5
+  MaximumSpeed: 1.5
   MinimumRotation: 0
   MaximumRotation: 360

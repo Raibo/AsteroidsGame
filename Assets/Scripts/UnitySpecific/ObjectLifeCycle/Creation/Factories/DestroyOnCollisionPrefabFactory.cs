@@ -4,18 +4,15 @@ using UnityEngine;
 
 namespace Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.ObjectLifeCycle.Creation
 {
-    public class SplitOnCollisionPrefabFactory : PrefabInstantiationWrapper
+    public class DestroyOnCollisionPrefabFactory : PrefabInstantiationWrapper
     {
-        public ObjectFactoryWrapper ShardsFactory;
-
-
         protected override void AssignComponentsFields(GameObject newObject)
         {
             newObject.GetComponent<MapBordersTeleporterHolder>().MapBordersProviderHolder = MapBordersProviderHolder;
-            var splitOnCollisionHolder = newObject.GetComponent<SplitInShardsOnCollisionHolder>();
-            splitOnCollisionHolder.ScoreCounterHolder = ScoreCounterHolder;
-            splitOnCollisionHolder.EnemiesCounterHolder = EnemiesCounterHolder;
-            splitOnCollisionHolder.EnemyFactory = ShardsFactory;
+
+            var destroyOnCollisionHolder = newObject.GetComponent<DestroyOnCollisionHolder>();
+            destroyOnCollisionHolder.ScoreCounterHolder = ScoreCounterHolder;
+            destroyOnCollisionHolder.EnemiesCounterHolder = EnemiesCounterHolder;
         }
     }
 }
