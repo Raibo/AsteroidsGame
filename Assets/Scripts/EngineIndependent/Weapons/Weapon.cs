@@ -1,10 +1,13 @@
 ﻿using Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.Navigation;
 using Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.Physics;
+using System;
 
 namespace Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.Weapons
 {
     public abstract class Weapon : IWeapon
     {
+        public event Action ShotOccured;
+
         protected readonly IAmmoProvider _ammoProvider;
         protected readonly IControlInputProvider _controlInputProvider;
         protected readonly IPhysicsObject _originObject;
@@ -23,7 +26,10 @@ namespace Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.
         public void Update()
         {
             if (IsShooting && _ammoProvider.TryUseCharge())
+            {
                 PerformShot();
+                ShotOccured?.Invoke();
+            }
         }
 
 

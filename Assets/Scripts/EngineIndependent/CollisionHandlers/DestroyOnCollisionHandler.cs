@@ -7,9 +7,9 @@ namespace Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.
 {
     public class DestroyOnCollisionHandler : ICollisionHandler
     {
+        protected readonly CollisionLayers _destroyingCollisionLayers;
         private readonly IDestroyable _destroyable;
         private readonly IScoreCounter _scoreCounter;
-        private readonly CollisionLayers _destroyingCollisionLayers;
         private readonly IEnemiesCounter _enemiesCounter;
         private readonly int _scoreForDestruction;
 

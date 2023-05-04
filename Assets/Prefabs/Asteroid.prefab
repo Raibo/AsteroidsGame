@@ -197,8 +197,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RigidBodyWrapper: {fileID: 8552059199170727950}
-  MinimumSpeed: 2
-  MaximumSpeed: 4
+  MinimumSpeed: 1
+  MaximumSpeed: 2.5
   MinimumRotation: 0
   MaximumRotation: 360
 --- !u!114 &1275562239914781617
@@ -219,4 +219,4 @@ MonoBehaviour:
   ScoreCounterHolder: {fileID: 0}
   EnemiesCounterHolder: {fileID: 0}
   ScoreForDestruction: 0
-  DestroyedByLayers: 0
+  DestroyedByLayers: 6

@@ -1,6 +1,5 @@
 ﻿using Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.ObjectLifeCycle.Creation;
 using Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.Physics;
-using Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.CollisionHandlers;
 using Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.Extensions;
 using Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.ObjectLifeCycle.Counters;
 using Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.Physics;
@@ -10,7 +9,7 @@ using AsteroidsVector2 = Hudossay.Asteroids.EngineIndependent.Assets.Scripts.Eng
 
 namespace Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.ObjectLifeCycle.Creation
 {
-    public class PrefabInstantiationWrapper : ObjectFactoryWrapper
+    public abstract class PrefabInstantiationWrapper : ObjectFactoryWrapper
     {
         public GameObject Prefab;
         public MapBordersProviderHolder MapBordersProviderHolder;
@@ -29,11 +28,7 @@ namespace Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.ObjectLi
             physicsObject.Rotation = rotation;
             physicsObject.Velocity = velocity;
 
-            newObject.GetComponent<MapBordersTeleporterHolder>().MapBordersProviderHolder = MapBordersProviderHolder;
-
-            var destroyOnCollisionHolder = newObject.GetComponent<DestroyOnCollisionHolder>();
-            destroyOnCollisionHolder.ScoreCounterHolder = ScoreCounterHolder;
-            destroyOnCollisionHolder.EnemiesCounterHolder = EnemiesCounterHolder;
+            AssignComponentsFields(newObject);
 
             newObject.GetComponents(_initializableBuffer);
 
@@ -44,10 +39,7 @@ namespace Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.ObjectLi
         }
 
 
-        protected virtual void AssignComponentsFields()
-        {
-
-        }
+        protected abstract void AssignComponentsFields(GameObject newObject);
 
 
         private void Awake() =>

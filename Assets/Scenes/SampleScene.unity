@@ -305,8 +305,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 840185771}
-  - component: {fileID: 840185772}
   - component: {fileID: 840185773}
+  - component: {fileID: 840185774}
   m_Layer: 0
   m_Name: Asteroid Factory
   m_TagString: Untagged
@@ -329,22 +329,6 @@ Transform:
   m_Father: {fileID: 1045864917}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &840185772
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 840185770}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8bcc89ef9f819440af853d630e9f7fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Prefab: {fileID: 8552059199170727949, guid: 5ff013a9e4d116247a974409fb0fee41, type: 3}
-  MapBordersProviderHolder: {fileID: 1045864916}
-  ScoreCounterHolder: {fileID: 1045864918}
-  EnemiesCounterHolder: {fileID: 840185773}
 --- !u!114 &840185773
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -357,6 +341,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efaf17eb95edcda4f8746be4e37f2c7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &840185774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 840185770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e927d9e7849936045942416c62004889, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Prefab: {fileID: 8552059199170727949, guid: 5ff013a9e4d116247a974409fb0fee41, type: 3}
+  MapBordersProviderHolder: {fileID: 1045864916}
+  ScoreCounterHolder: {fileID: 1045864918}
+  EnemiesCounterHolder: {fileID: 840185773}
+  ShardsFactory: {fileID: 1937468679}
 --- !u!1 &1045864915
 GameObject:
   m_ObjectHideFlags: 0
@@ -480,7 +481,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Transform: {fileID: 1144808234}
-  EnemyFactory: {fileID: 840185772}
+  EnemyFactory: {fileID: 840185774}
   EnemiesCounterHolder: {fileID: 840185773}
   MinimumInterval: 1
   MaximumInterval: 15
@@ -530,7 +531,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Transform: {fileID: 1201128018}
-  EnemyFactory: {fileID: 840185772}
+  EnemyFactory: {fileID: 840185774}
   EnemiesCounterHolder: {fileID: 840185773}
   MinimumInterval: 1
   MaximumInterval: 15
@@ -585,6 +586,90 @@ MonoBehaviour:
   MinimumInterval: 1
   MaximumInterval: 15
   EnemyLimit: 1
+--- !u!1 &1343479772
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1343479773}
+  - component: {fileID: 1343479774}
+  m_Layer: 6
+  m_Name: LaserBeam
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1343479773
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1343479772}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 7.5, z: 0}
+  m_LocalScale: {x: 0.15, y: 15, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1931998759}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &1343479774
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1343479772}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &1445721094
 GameObject:
   m_ObjectHideFlags: 0
@@ -601,10 +686,7 @@ GameObject:
   - component: {fileID: 1445721097}
   - component: {fileID: 1445721100}
   - component: {fileID: 1445721101}
-  - component: {fileID: 1445721103}
-  - component: {fileID: 1445721104}
-  - component: {fileID: 1445721102}
-  - component: {fileID: 1445721105}
+  - component: {fileID: 1445721109}
   - component: {fileID: 1445721107}
   - component: {fileID: 1445721108}
   m_Layer: 6
@@ -625,7 +707,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1931998759}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -759,73 +842,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1b65bf553ae6a5418b3e022f39ede1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1445721102
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1445721094}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c6c74fd06b2baf4fb06dbe849a25435, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LinkedAmmoDesctiption: Ammo for the gun
-  UserInputWrapper: {fileID: 1445721101}
-  RigidBodyWrapper: {fileID: 1445721098}
-  AmmoHolder: {fileID: 1445721103}
-  BulletFactory: {fileID: 1445721105}
---- !u!114 &1445721103
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1445721094}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff6219ae8523eb14e9b37144ffbd12e6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DeveloperDescription: Ammo for the gun
-  MaximumCharges: 2
-  InitialCharges: 2
-  CooldownTime: 0.3
-  GainChargeTime: 0
---- !u!114 &1445721104
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1445721094}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff6219ae8523eb14e9b37144ffbd12e6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DeveloperDescription: Ammo for the laser
-  MaximumCharges: 5
-  InitialCharges: 5
-  CooldownTime: 2
-  GainChargeTime: 5
---- !u!114 &1445721105
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1445721094}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8bcc89ef9f819440af853d630e9f7fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Prefab: {fileID: 8297112833212302647, guid: e7210f964c6574c44a924099480f3139, type: 3}
-  MapBordersProviderHolder: {fileID: 1045864916}
-  ScoreCounterHolder: {fileID: 1045864918}
-  EnemiesCounterHolder: {fileID: 0}
 --- !u!60 &1445721106
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -883,6 +899,22 @@ MonoBehaviour:
   Collider: {fileID: 1445721106}
   CollisionHandlerHolder: {fileID: 1445721107}
   CollisionLayers: 1
+--- !u!114 &1445721109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1445721094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88ad09c2e6bed344f997bbe13e2394f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Prefab: {fileID: 8297112833212302647, guid: e7210f964c6574c44a924099480f3139, type: 3}
+  MapBordersProviderHolder: {fileID: 1045864916}
+  ScoreCounterHolder: {fileID: 1045864918}
+  EnemiesCounterHolder: {fileID: 0}
 --- !u!1 &1473398940
 GameObject:
   m_ObjectHideFlags: 0
@@ -928,7 +960,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Transform: {fileID: 1473398941}
-  EnemyFactory: {fileID: 840185772}
+  EnemyFactory: {fileID: 840185774}
   EnemiesCounterHolder: {fileID: 840185773}
   MinimumInterval: 1
   MaximumInterval: 15
@@ -978,7 +1010,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Transform: {fileID: 1840620085}
-  EnemyFactory: {fileID: 840185772}
+  EnemyFactory: {fileID: 840185774}
   EnemiesCounterHolder: {fileID: 840185773}
   MinimumInterval: 1
   MaximumInterval: 15
@@ -1028,7 +1060,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Transform: {fileID: 1884314725}
-  EnemyFactory: {fileID: 840185772}
+  EnemyFactory: {fileID: 840185774}
   EnemiesCounterHolder: {fileID: 840185773}
   MinimumInterval: 1
   MaximumInterval: 15
@@ -1042,8 +1074,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1891097161}
-  - component: {fileID: 1891097163}
   - component: {fileID: 1891097162}
+  - component: {fileID: 1891097163}
   m_Layer: 0
   m_Name: Saucer Factory
   m_TagString: Untagged
@@ -1087,13 +1119,150 @@ MonoBehaviour:
   m_GameObject: {fileID: 1891097160}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8bcc89ef9f819440af853d630e9f7fe, type: 3}
+  m_Script: {fileID: 11500000, guid: 88ad09c2e6bed344f997bbe13e2394f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Prefab: {fileID: 8552059199170727949, guid: 3317c473e46c57d4991509f9da45e28d, type: 3}
   MapBordersProviderHolder: {fileID: 1045864916}
   ScoreCounterHolder: {fileID: 1045864918}
   EnemiesCounterHolder: {fileID: 1891097162}
+--- !u!1 &1931998758
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1931998759}
+  - component: {fileID: 1931998765}
+  - component: {fileID: 1931998764}
+  - component: {fileID: 1931998762}
+  - component: {fileID: 1931998761}
+  - component: {fileID: 1931998760}
+  - component: {fileID: 1931998766}
+  m_Layer: 6
+  m_Name: Weapons
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1931998759
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1931998758}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1343479773}
+  m_Father: {fileID: 1445721095}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1931998760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1931998758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5f478e88962a1e4e8893aa8ac5f2876, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Layer:
+    serializedVersion: 2
+    m_Bits: 384
+--- !u!114 &1931998761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1931998758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e85abb6220e954478d4accb6dab82a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LinkedAmmoDesctiption: Ammo for the laser
+  UserInputWrapper: {fileID: 1445721101}
+  RigidBodyWrapper: {fileID: 1445721098}
+  AmmoHolder: {fileID: 1931998764}
+  CircleCastWrapper: {fileID: 1931998760}
+  LaserWidth: 0.3
+--- !u!114 &1931998762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1931998758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c6c74fd06b2baf4fb06dbe849a25435, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LinkedAmmoDesctiption: Ammo for the gun
+  UserInputWrapper: {fileID: 1445721101}
+  RigidBodyWrapper: {fileID: 1445721098}
+  AmmoHolder: {fileID: 1931998765}
+  BulletFactory: {fileID: 1445721109}
+--- !u!114 &1931998764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1931998758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff6219ae8523eb14e9b37144ffbd12e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DeveloperDescription: Ammo for the laser
+  MaximumCharges: 5
+  InitialCharges: 5
+  CooldownTime: 2
+  GainChargeTime: 5
+--- !u!114 &1931998765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1931998758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff6219ae8523eb14e9b37144ffbd12e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DeveloperDescription: Ammo for the gun
+  MaximumCharges: 2
+  InitialCharges: 2
+  CooldownTime: 0.3
+  GainChargeTime: 0
+--- !u!114 &1931998766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1931998758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f3ff490f51ac6741b072d9e6a0e77e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  VisualGameObject: {fileID: 1343479772}
+  WeaponHolder: {fileID: 1931998761}
+  ShowTime: 0.05
 --- !u!1 &1937468677
 GameObject:
   m_ObjectHideFlags: 0
@@ -1135,7 +1304,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1937468677}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8bcc89ef9f819440af853d630e9f7fe, type: 3}
+  m_Script: {fileID: 11500000, guid: 88ad09c2e6bed344f997bbe13e2394f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Prefab: {fileID: 8552059199170727949, guid: e57d5933b79999944b577c97635338b0, type: 3}
@@ -1187,7 +1356,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Transform: {fileID: 1977099550}
-  EnemyFactory: {fileID: 840185772}
+  EnemyFactory: {fileID: 840185774}
   EnemiesCounterHolder: {fileID: 840185773}
   MinimumInterval: 1
   MaximumInterval: 15

@@ -23,7 +23,12 @@ namespace Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.
 
         public override void HandleCollision(CollisionLayers otherObjectCollisionLayers)
         {
-            _shardsFactory.Create(_physicsObject.Position, _physicsObject.Velocity, _physicsObject.Rotation);
+            if ((otherObjectCollisionLayers & _destroyingCollisionLayers) != CollisionLayers.None)
+            {
+                _shardsFactory.Create(_physicsObject.Position, _physicsObject.Velocity, _physicsObject.Rotation);
+                _shardsFactory.Create(_physicsObject.Position, _physicsObject.Velocity, _physicsObject.Rotation);
+            }
+
             base.HandleCollision(otherObjectCollisionLayers);
         }
     }
