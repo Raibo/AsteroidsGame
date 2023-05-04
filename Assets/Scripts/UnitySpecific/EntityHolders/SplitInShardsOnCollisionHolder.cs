@@ -1,5 +1,4 @@
 ﻿using Assets.Scripts.EngineIndependent.DataStructs;
-using Assets.Scripts.EngineIndependent.GameEntities;
 using Assets.Scripts.EngineIndependent.GameLogicInterfaces;
 using Assets.Scripts.Extensions;
 using Assets.Scripts.Wrappers;

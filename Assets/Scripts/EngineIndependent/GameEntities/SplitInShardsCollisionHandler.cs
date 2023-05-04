@@ -12,7 +12,7 @@ namespace Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.
 
 
         public SplitInShardsCollisionHandler(IDestroyable destroyable, IScoreCounter scoreCounter, CollisionLayers destroyingCollisionLayers,
-            IEnemiesCounter enemiesCounter, IObjectFactory shardsFactory, IPhysicsObject physicsObject, int scoreForDestruction) 
+            IEnemiesCounter enemiesCounter, IObjectFactory shardsFactory, IPhysicsObject physicsObject, int scoreForDestruction)
             : base(destroyable, scoreCounter, destroyingCollisionLayers, enemiesCounter, scoreForDestruction)
         {
             _shardsFactory = shardsFactory;

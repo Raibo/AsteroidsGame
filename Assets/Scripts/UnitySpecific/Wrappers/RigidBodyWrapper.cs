@@ -1,6 +1,6 @@
-﻿using Hudossay.Asteroids.Assets.Scripts.EngineIndependent.GameLogicInterfaces;
+﻿using Assets.Scripts.Extensions;
+using Hudossay.Asteroids.Assets.Scripts.EngineIndependent.GameLogicInterfaces;
 using UnityEngine;
-using Assets.Scripts.Extensions;
 using AsteroidsVector2 = Hudossay.Asteroids.Assets.Scripts.EngineIndependent.DataStructs.Vector2;
 using UnityVector2 = UnityEngine.Vector2;
 
