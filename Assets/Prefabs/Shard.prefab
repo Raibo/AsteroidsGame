@@ -170,7 +170,7 @@ MonoBehaviour:
   DestroyableWrapper: {fileID: 8552059199170727940}
   ScoreCounterHolder: {fileID: 0}
   EnemiesCounterHolder: {fileID: 0}
-  ScoreForDestruction: 100
+  ScoreForDestruction: 50
   DestroyedByLayers: 6
 --- !u!114 &8552059199170727946
 MonoBehaviour:

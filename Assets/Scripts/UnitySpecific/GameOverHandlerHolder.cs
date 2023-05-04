@@ -1,6 +1,7 @@
 ﻿using Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent;
 using Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.ObjectLifeCycle.Counters;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific
 {
@@ -9,6 +10,7 @@ namespace Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific
     {
         public IGameOverHandler GameOverHandler;
         public ScoreCounterHolder ScoreCounterHolder;
+        public Text GameOverMessage;
 
 
         public void Awake()
@@ -18,8 +20,12 @@ namespace Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific
         }
 
 
-        private void OnGameOver(int score) =>
-            print($"Game over! Score: {score}");
+        private void OnGameOver(int score)
+        {
+            GameOverMessage.text = $"Game Over.\nScore: {score}";
+            GameOverMessage.gameObject.SetActive(true);
+            Time.timeScale = 0f;
+        }
 
 
         private void OnDestroy() =>
