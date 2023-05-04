@@ -3,8 +3,10 @@ using UnityEngine;
 
 namespace Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.Navigation
 {
-    public class UserInputWrapper : MonoBehaviour, IControlInputProvider
+    public class UserInputWrapper : EntityHolder<IControlInputProvider>, IControlInputProvider
     {
+        public override IControlInputProvider Entity => this;
+
         public SteeringDirection SteeringDirection => _steeringDirection;
         public bool IsAccelerating => _isAccelerating;
         public bool IsShootingGun => _isShootingGun;

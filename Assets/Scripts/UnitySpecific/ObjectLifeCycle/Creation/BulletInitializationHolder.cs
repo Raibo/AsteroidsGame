@@ -1,15 +1,14 @@
 ﻿using Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.ObjectLifeCycle.Creation;
-using Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.Physics;
-using UnityEngine;
+using Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.Physics;
+using Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.Extensions;
 
 namespace Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.ObjectLifeCycle.Creation
 {
-    [RequireComponent(typeof(RigidBodyWrapper))]
-    public class BulletInitializationHolder : InitializableHolder, IInitializable
+    public class BulletInitializationHolder : EntityHolder<IInitializable>, IInitializedAfterFabrication
     {
-        public RigidBodyWrapper RigidBodyWrapper;
+        public EntityHolder<IPhysicsObject> PhysicsObject;
         public float Speed;
-        public override IInitializable Initializable => _initializable;
+        public override IInitializable Entity => _initializable;
 
         private IInitializable _initializable;
 
@@ -19,10 +18,10 @@ namespace Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.ObjectLi
 
 
         private void Awake() =>
-            _initializable = new BulletInitializer(RigidBodyWrapper, Speed);
+            _initializable = new BulletInitializer(PhysicsObject.Entity, Speed);
 
 
         private void OnValidate() =>
-            RigidBodyWrapper = GetComponent<RigidBodyWrapper>();
+            this.NotifyFieldNotFilledInScene(PhysicsObject, nameof(PhysicsObject));
     }
 }

@@ -1,38 +1,45 @@
-﻿using Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.Weapons;
+﻿using Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.Navigation;
+using Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.Physics;
+using Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.Weapons;
 using Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.Extensions;
-using Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.Navigation;
-using Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.Physics;
 using UnityEngine;
 
 namespace Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.Weapons
 {
-    public class WeaponHolder : MonoBehaviour
+    public class WeaponHolder : EntityHolder<IWeapon>
     {
 #if UNITY_EDITOR
         public string LinkedAmmoDesctiption;
 #endif
 
-        public IWeapon Weapon;
+        public override IWeapon Entity => _weapon;
 
         [Space(15)]
-        public UserInputWrapper UserInputWrapper;
-        public RigidBodyWrapper RigidBodyWrapper;
-        public AmmoProviderHolder AmmoHolder;
+        public EntityHolder<IControlInputProvider> ControlInput;
+        public EntityHolder<IPhysicsObject> PhysicsObject;
+        public EntityHolder<IAmmoProvider> AmmoProvider;
+
+        protected IWeapon _weapon;
 
 
         private void FixedUpdate() =>
-            Weapon.Update();
+            _weapon.Update();
 
 
         private void OnValidate()
         {
-            this.NotifyFieldNotFilled(UserInputWrapper, nameof(UserInputWrapper));
-            this.NotifyFieldNotFilled(RigidBodyWrapper, nameof(RigidBodyWrapper));
-            this.NotifyFieldNotFilled(AmmoHolder, nameof(AmmoHolder));
+            this.NotifyFieldNotFilled(ControlInput, nameof(ControlInput));
+            this.NotifyFieldNotFilled(PhysicsObject, nameof(PhysicsObject));
+            this.NotifyFieldNotFilled(AmmoProvider, nameof(AmmoProvider));
 
-            LinkedAmmoDesctiption = AmmoHolder == null
-                ? string.Empty
-                : AmmoHolder.DeveloperDescription;
+#if UNITY_EDITOR
+            if (AmmoProvider is AmmoProviderHolder ammoProviderHolder)
+            {
+                LinkedAmmoDesctiption = AmmoProvider == null
+                    ? string.Empty
+                    : ammoProviderHolder.DeveloperDescription;
+            }
+#endif
         }
     }
 }

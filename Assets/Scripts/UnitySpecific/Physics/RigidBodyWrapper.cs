@@ -7,10 +7,12 @@ using UnityVector2 = UnityEngine.Vector2;
 namespace Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.Physics
 {
     [RequireComponent(typeof(Rigidbody2D))]
-    public class RigidBodyWrapper : MonoBehaviour, IPhysicsObject
+    public class RigidBodyWrapper : EntityHolder<IPhysicsObject>, IPhysicsObject
     {
         public Transform Transform;
         public Rigidbody2D Rigidbody2D;
+
+        public override IPhysicsObject Entity => this;
 
         public AsteroidsVector2 Position
         {

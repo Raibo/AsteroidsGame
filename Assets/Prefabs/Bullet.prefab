@@ -156,7 +156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f73ffc061dd93f4bb54757087c42cb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RigidBodyWrapper: {fileID: 8297112833212302651}
+  PhysicsObjectHolder: {fileID: 8297112833212302651}
   Speed: 12
 --- !u!114 &8297380087495482070
 MonoBehaviour:
@@ -196,7 +196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52fa86cc4cc132b43b23dff01fd9952d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RigidBodyWrapper: {fileID: 8297112833212302651}
+  PhysicsObject: {fileID: 8297112833212302651}
   MapBordersProviderHolder: {fileID: 0}
 --- !u!114 &4250120703025785638
 MonoBehaviour:
@@ -225,7 +225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e1808189163c344b9846c732ce19823, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DestroyableWrapper: {fileID: 8297380087495482070}
+  DestroyableHolder: {fileID: 8297380087495482070}
   ScoreCounterHolder: {fileID: 0}
   EnemiesCounterHolder: {fileID: 0}
   ScoreForDestruction: 0

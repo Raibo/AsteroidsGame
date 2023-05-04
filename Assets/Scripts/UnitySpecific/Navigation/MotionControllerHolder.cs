@@ -1,25 +1,26 @@
 ﻿using Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.Navigation;
-using Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.Physics;
+using Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.Physics;
+using Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.Extensions;
 using UnityEngine;
 
 namespace Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.Navigation
 {
-    [RequireComponent(typeof(RigidBodyWrapper))]
-    [RequireComponent(typeof(UserInputWrapper))]
-    public class MotionControllerHolder : MonoBehaviour
+    public class MotionControllerHolder : EntityHolder<MotionController>
     {
-        public RigidBodyWrapper RigidBodyWrapper;
-        public UserInputWrapper UserInputWrapper;
+        public EntityHolder<IPhysicsObject> PhysicsObject;
+        public EntityHolder<IControlInputProvider> ControlInputProvider;
         public float SteeringSpeed;
         public float Acceleration;
         public float MaxSpeed;
+
+        public override MotionController Entity => _motionController;
 
         private MotionController _motionController;
 
 
         public void Awake()
         {
-            _motionController = new MotionController(RigidBodyWrapper, UserInputWrapper,
+            _motionController = new MotionController(PhysicsObject.Entity, ControlInputProvider.Entity,
                 SteeringSpeed, Acceleration, MaxSpeed);
         }
 
@@ -30,8 +31,8 @@ namespace Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.Navigati
 
         private void OnValidate()
         {
-            RigidBodyWrapper = GetComponent<RigidBodyWrapper>();
-            UserInputWrapper = GetComponent<UserInputWrapper>();
+            this.NotifyFieldNotFilledInScene(PhysicsObject, nameof(PhysicsObject));
+            this.NotifyFieldNotFilledInScene(ControlInputProvider, nameof(ControlInputProvider));
         }
     }
 }

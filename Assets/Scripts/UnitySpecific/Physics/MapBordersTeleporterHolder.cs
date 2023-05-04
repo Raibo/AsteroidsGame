@@ -1,20 +1,20 @@
 ﻿using Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.Physics;
 using Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.Extensions;
-using UnityEngine;
 
 namespace Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.Physics
 {
-    [RequireComponent(typeof(RigidBodyWrapper))]
-    public class MapBordersTeleporterHolder : MonoBehaviour
+    public class MapBordersTeleporterHolder : EntityHolder<MapBordersTeleporter>
     {
-        public RigidBodyWrapper RigidBodyWrapper;
-        public MapBordersProviderHolder MapBordersProviderHolder;
+        public EntityHolder<IPhysicsObject> PhysicsObject;
+        public EntityHolder<IMapBordersProvider> MapBordersProvider;
+
+        public override MapBordersTeleporter Entity => _mapBordersTeleporter;
 
         private MapBordersTeleporter _mapBordersTeleporter;
 
 
         private void Start() =>
-            _mapBordersTeleporter = new MapBordersTeleporter(RigidBodyWrapper, MapBordersProviderHolder.MapBordersProvider);
+            _mapBordersTeleporter = new MapBordersTeleporter(PhysicsObject.Entity, MapBordersProvider.Entity);
 
 
         private void FixedUpdate() =>
@@ -23,8 +23,8 @@ namespace Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.Physics
 
         private void OnValidate()
         {
-            RigidBodyWrapper = GetComponent<RigidBodyWrapper>();
-            this.NotifyFieldNotFilledInScene(MapBordersProviderHolder, nameof(MapBordersProviderHolder));
+            this.NotifyFieldNotFilledInScene(PhysicsObject, nameof(PhysicsObject));
+            this.NotifyFieldNotFilledInScene(MapBordersProvider, nameof(MapBordersProvider));
         }
     }
 }

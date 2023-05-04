@@ -4,25 +4,24 @@ using UnityEngine;
 
 namespace Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.ObjectLifeCycle.Destruction
 {
-    public class LifetimeLimiterHolder : MonoBehaviour
+    public class LifetimeLimiterHolder : EntityHolder<LifetimeLimiter>
     {
         public float Lifetime;
-        public DestroyableWrapper Destroyable;
-        public LifetimeLimiter LifetimeLimiter;
+        public EntityHolder<IDestroyable> Destroyable;
+        public override LifetimeLimiter Entity => _lifetimeLimiter;
 
+
+        private LifetimeLimiter _lifetimeLimiter;
 
         private void Awake() =>
-            LifetimeLimiter = new LifetimeLimiter(Destroyable, Lifetime);
+            _lifetimeLimiter = new LifetimeLimiter(Destroyable.Entity, Lifetime);
 
 
         private void FixedUpdate() =>
-            LifetimeLimiter.Update(Time.deltaTime);
+            _lifetimeLimiter.Update(Time.deltaTime);
 
 
-        private void OnValidate()
-        {
-            Destroyable = GetComponent<DestroyableWrapper>();
+        private void OnValidate() =>
             this.NotifyFieldNotFilled(Destroyable, nameof(Destroyable));
-        }
     }
 }

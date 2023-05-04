@@ -6,11 +6,14 @@ using AsteroidsVector2 = Hudossay.Asteroids.EngineIndependent.Assets.Scripts.Eng
 
 namespace Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.Collisions
 {
-    public class CircleCastWrapper : MonoBehaviour, ILaserColliderProvider
+    public class CircleCastWrapper : EntityHolder<ILaserColliderProvider>, ILaserColliderProvider
     {
         public LayerMask Layer;
 
+        public override ILaserColliderProvider Entity => this;
+
         private const float CastDistance = 15f;
+
 
         public ICollidable[] GetHitObjects(AsteroidsVector2 origin, AsteroidsVector2 direction, float width)
         {

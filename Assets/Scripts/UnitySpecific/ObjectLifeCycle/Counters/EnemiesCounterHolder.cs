@@ -1,11 +1,10 @@
 ﻿using Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.ObjectLifeCycle.Counters;
-using UnityEngine;
 
 namespace Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.ObjectLifeCycle.Counters
 {
-    public class EnemiesCounterHolder : MonoBehaviour
+    public class EnemiesCounterHolder : EntityHolder<IEnemiesCounter>
     {
-        public IEnemiesCounter EnemiesCounter => GetEnemiesCounter();
+        public override IEnemiesCounter Entity => GetEnemiesCounter();
 
         private IEnemiesCounter _enemiesCounter;
 

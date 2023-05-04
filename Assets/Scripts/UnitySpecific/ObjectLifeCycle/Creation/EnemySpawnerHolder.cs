@@ -1,7 +1,7 @@
 ﻿using Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent;
+using Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.ObjectLifeCycle.Counters;
 using Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.ObjectLifeCycle.Creation;
 using Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.Extensions;
-using Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.ObjectLifeCycle.Counters;
 using UnityEngine;
 
 namespace Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.ObjectLifeCycle.Creation
@@ -9,8 +9,8 @@ namespace Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.ObjectLi
     public class EnemySpawnerHolder : MonoBehaviour
     {
         public Transform Transform;
-        public ObjectFactoryWrapper EnemyFactory;
-        public EnemiesCounterHolder EnemiesCounterHolder;
+        public EntityHolder<IObjectFactory> EnemyFactory;
+        public EntityHolder<IEnemiesCounter> EnemiesCounter;
         public float MinimumInterval;
         public float MaximumInterval;
         public int EnemyLimit;
@@ -20,7 +20,7 @@ namespace Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.ObjectLi
 
         private void Awake()
         {
-            _enemySpawner = new EnemySpawner(EnemyFactory, EnemiesCounterHolder.EnemiesCounter, new SystemRandomProvider(),
+            _enemySpawner = new EnemySpawner(EnemyFactory.Entity, EnemiesCounter.Entity, new SystemRandomProvider(),
                 ((Vector2)Transform.position).ToAsteroidsVector2(), MinimumInterval, MaximumInterval, EnemyLimit);
         }
 
@@ -33,7 +33,7 @@ namespace Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.ObjectLi
         {
             Transform = transform;
             this.NotifyFieldNotFilled(EnemyFactory, nameof(EnemyFactory));
-            this.NotifyFieldNotFilled(EnemiesCounterHolder, nameof(EnemiesCounterHolder));
+            this.NotifyFieldNotFilled(EnemiesCounter, nameof(EnemiesCounter));
         }
     }
 }

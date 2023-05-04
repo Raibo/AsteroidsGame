@@ -1,11 +1,10 @@
 ﻿using Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.ObjectLifeCycle.Counters;
-using UnityEngine;
 
 namespace Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.ObjectLifeCycle.Counters
 {
-    public class ScoreCounterHolder : MonoBehaviour
+    public class ScoreCounterHolder : EntityHolder<IScoreCounter>
     {
-        public IScoreCounter ScoreCounter => GetScoreCounter();
+        public override IScoreCounter Entity => GetScoreCounter();
 
         private IScoreCounter _scoreCounter;
 

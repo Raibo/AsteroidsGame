@@ -1,7 +1,5 @@
 ﻿using Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.Physics;
 using Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.Weapons;
-using Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.Physics;
-using Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.Weapons;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,8 +7,8 @@ namespace Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.Ui
 {
     public class UiDisplayer : MonoBehaviour
     {
-        public RigidBodyWrapper RigidBodyWrapper;
-        public AmmoProviderHolder AmmoProviderHolder;
+        public EntityHolder<IPhysicsObject> ShipPhysicsObject;
+        public EntityHolder<IAmmoProvider> LaserAmmoProvider;
         public Text Text;
 
         private IPhysicsObject _physicsObject;
@@ -19,8 +17,8 @@ namespace Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.Ui
 
         private void Awake()
         {
-            _physicsObject = RigidBodyWrapper;
-            _ammoProvider = AmmoProviderHolder.AmmoProvider;
+            _physicsObject = ShipPhysicsObject.Entity;
+            _ammoProvider = LaserAmmoProvider.Entity;
         }
 
 
@@ -28,9 +26,9 @@ namespace Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.Ui
         {
             var laserCooldown = _ammoProvider.IsChargeReady ? 0f : _ammoProvider.RemainingCooldownTime;
 
-            Text.text = $"Position = {_physicsObject.Position.X : #0.0};{_physicsObject.Position.Y: #0.0}\n" +
-                $"Angle = {_physicsObject.Rotation : ##0.0}\n" +
-                $"Speed = {_physicsObject.Velocity.Magnitude : #0.0}\n" +
+            Text.text = $"Position = {_physicsObject.Position.X: #0.0};{_physicsObject.Position.Y: #0.0}\n" +
+                $"Angle = {_physicsObject.Rotation: ##0.0}\n" +
+                $"Speed = {_physicsObject.Velocity.Magnitude: #0.0}\n" +
                 $"Laser Ammo = {_ammoProvider.AvailableCharges}\n" +
                 $"Laser Cooldown = {laserCooldown: #0.0}";
         }

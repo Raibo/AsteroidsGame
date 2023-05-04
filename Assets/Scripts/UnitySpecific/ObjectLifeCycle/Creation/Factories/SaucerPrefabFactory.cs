@@ -1,26 +1,29 @@
-﻿using Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.CollisionHandlers;
+﻿using Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.ObjectLifeCycle.Creation;
+using Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.Physics;
+using Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.CollisionHandlers;
 using Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.Navigation;
+using Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.ObjectLifeCycle.Creation.Factories;
 using Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.Physics;
 using UnityEngine;
 
 namespace Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.ObjectLifeCycle.Creation
 {
-    public class SaucerPrefabFactory : PrefabInstantiationWrapper
+    public class SaucerPrefabFactory : PrefabInstantiationWrapper, IObjectFactory
     {
-        public RigidBodyWrapper HomingTargetPhysicsWrapper;
+        public EntityHolder<IPhysicsObject> HomingTargetPhysicsObject;
 
 
         protected override void AssignComponentsFields(GameObject newObject)
         {
-            newObject.GetComponent<MapBordersTeleporterHolder>().MapBordersProviderHolder = MapBordersProviderHolder;
+            newObject.GetComponent<MapBordersTeleporterHolder>().MapBordersProvider = MapBordersProvider;
 
             var destroyOnCollisionHolder = newObject.GetComponent<DestroyOnCollisionHolder>();
-            destroyOnCollisionHolder.ScoreCounterHolder = ScoreCounterHolder;
-            destroyOnCollisionHolder.EnemiesCounterHolder = EnemiesCounterHolder;
+            destroyOnCollisionHolder.ScoreCounter = ScoreCounter;
+            destroyOnCollisionHolder.EnemiesCounter = EnemiesCounter;
 
             var homingController = newObject.GetComponent<HomingControllerHolder>();
-            homingController.TargetRigidBodyWrapper = HomingTargetPhysicsWrapper;
-            homingController.MapBordersProviderHolder = MapBordersProviderHolder;
+            homingController.TargetPhysicsObject = HomingTargetPhysicsObject;
+            homingController.MapBordersProvider = MapBordersProvider;
         }
     }
 }

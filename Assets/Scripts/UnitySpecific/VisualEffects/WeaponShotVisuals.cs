@@ -1,4 +1,4 @@
-﻿using Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.Weapons;
+﻿using Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.Weapons;
 using System;
 using System.Threading.Tasks;
 using UnityEngine;
@@ -8,13 +8,13 @@ namespace Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.VisualEf
     public class WeaponShotVisuals : MonoBehaviour
     {
         public GameObject VisualGameObject;
-        public WeaponHolder WeaponHolder;
+        public EntityHolder<IWeapon> Weapon;
 
         public float ShowTime;
 
 
         private void Start() =>
-            WeaponHolder.Weapon.ShotOccured += ShowVisuals;
+            Weapon.Entity.ShotOccured += ShowVisuals;
 
 
         private async void ShowVisuals()
@@ -26,6 +26,6 @@ namespace Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.VisualEf
 
 
         private void OnDestroy() =>
-            WeaponHolder.Weapon.ShotOccured -= ShowVisuals;
+            Weapon.Entity.ShotOccured -= ShowVisuals;
     }
 }

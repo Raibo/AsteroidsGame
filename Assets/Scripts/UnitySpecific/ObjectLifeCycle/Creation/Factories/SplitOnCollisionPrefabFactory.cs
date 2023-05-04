@@ -1,4 +1,6 @@
-﻿using Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.CollisionHandlers;
+﻿using Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.ObjectLifeCycle.Creation;
+using Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.CollisionHandlers;
+using Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.ObjectLifeCycle.Creation.Factories;
 using Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.Physics;
 using UnityEngine;
 
@@ -6,16 +8,16 @@ namespace Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.ObjectLi
 {
     public class SplitOnCollisionPrefabFactory : PrefabInstantiationWrapper
     {
-        public ObjectFactoryWrapper ShardsFactory;
+        public EntityHolder<IObjectFactory> ShardsFactory;
 
 
         protected override void AssignComponentsFields(GameObject newObject)
         {
-            newObject.GetComponent<MapBordersTeleporterHolder>().MapBordersProviderHolder = MapBordersProviderHolder;
+            newObject.GetComponent<MapBordersTeleporterHolder>().MapBordersProvider = MapBordersProvider;
 
             var splitOnCollisionHolder = newObject.GetComponent<SplitInShardsOnCollisionHolder>();
-            splitOnCollisionHolder.ScoreCounterHolder = ScoreCounterHolder;
-            splitOnCollisionHolder.EnemiesCounterHolder = EnemiesCounterHolder;
+            splitOnCollisionHolder.ScoreCounter = ScoreCounter;
+            splitOnCollisionHolder.EnemiesCounter = EnemiesCounter;
             splitOnCollisionHolder.EnemyFactory = ShardsFactory;
         }
     }

@@ -3,11 +3,13 @@ using UnityEngine;
 
 namespace Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.Weapons
 {
-    public class AmmoProviderHolder : MonoBehaviour
+    public class AmmoProviderHolder : EntityHolder<IAmmoProvider>
     {
 #if UNITY_EDITOR
         public string DeveloperDescription;
 #endif
+
+        public override IAmmoProvider Entity => GetAmmoProvider();
 
         [Space(15)]
         public int MaximumCharges;
@@ -17,8 +19,6 @@ namespace Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.Weapons
         public float GainChargeTime;
 
         private IAmmoProvider _ammoProvider;
-
-        public IAmmoProvider AmmoProvider => GetAmmoProvider();
 
 
         private void Awake() =>

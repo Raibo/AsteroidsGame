@@ -5,18 +5,20 @@ using UnityEngine.UI;
 
 namespace Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific
 {
-    [RequireComponent(typeof(ScoreCounterHolder))]
-    public class GameOverHandlerHolder : MonoBehaviour
+    public class GameOverHandlerHolder : EntityHolder<IGameOverHandler>
     {
-        public IGameOverHandler GameOverHandler;
-        public ScoreCounterHolder ScoreCounterHolder;
+        public ScoreCounterHolder ScoreCounter;
         public Text GameOverMessage;
+
+        public override IGameOverHandler Entity => _gameOverHandler;
+
+        private IGameOverHandler _gameOverHandler;
 
 
         public void Awake()
         {
-            GameOverHandler = new GameOverHandler(ScoreCounterHolder.ScoreCounter);
-            GameOverHandler.GameOverDeclared += OnGameOver;
+            _gameOverHandler = new GameOverHandler(ScoreCounter.Entity);
+            _gameOverHandler.GameOverDeclared += OnGameOver;
         }
 
 
@@ -29,10 +31,6 @@ namespace Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific
 
 
         private void OnDestroy() =>
-            GameOverHandler.GameOverDeclared -= OnGameOver;
-
-
-        private void OnValidate() =>
-            ScoreCounterHolder = GetComponent<ScoreCounterHolder>();
+            _gameOverHandler.GameOverDeclared -= OnGameOver;
     }
 }

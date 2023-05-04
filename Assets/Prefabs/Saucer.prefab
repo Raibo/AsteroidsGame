@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 8552059199170727945}
   - component: {fileID: 8552059199170727944}
   - component: {fileID: 8552059199170727951}
-  - component: {fileID: 8552059199170727950}
   - component: {fileID: 6970840515491839630}
+  - component: {fileID: 8552059199170727950}
   - component: {fileID: 8552059199170727940}
   - component: {fileID: 8552059199170727947}
   - component: {fileID: 8552059199170727946}
@@ -114,20 +114,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &8552059199170727950
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8552059199170727949}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e82a5c2fd30d4e45bf3f0ca8bfd2870, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Transform: {fileID: 8552059199170727945}
-  Rigidbody2D: {fileID: 8552059199170727951}
 --- !u!70 &6970840515491839630
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -144,6 +130,20 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: -0.08}
   m_Size: {x: 0.92, y: 0.35}
   m_Direction: 1
+--- !u!114 &8552059199170727950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8552059199170727949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e82a5c2fd30d4e45bf3f0ca8bfd2870, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Transform: {fileID: 8552059199170727945}
+  Rigidbody2D: {fileID: 8552059199170727951}
 --- !u!114 &8552059199170727940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e1808189163c344b9846c732ce19823, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DestroyableWrapper: {fileID: 8552059199170727940}
+  DestroyableHolder: {fileID: 8552059199170727940}
   ScoreCounterHolder: {fileID: 0}
   EnemiesCounterHolder: {fileID: 0}
   ScoreForDestruction: 200
@@ -200,7 +200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52fa86cc4cc132b43b23dff01fd9952d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RigidBodyWrapper: {fileID: 8552059199170727950}
+  PhysicsObject: {fileID: 8552059199170727950}
   MapBordersProviderHolder: {fileID: 0}
 --- !u!114 &-3380498906978069545
 MonoBehaviour:
@@ -214,7 +214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20ab8db2e78e8d74b93626717cd69031, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RigidBodyWrapper: {fileID: 8552059199170727950}
+  PhysicsObjectHolder: {fileID: 8552059199170727950}
   MinimumSpeed: 0
   MaximumSpeed: 0
   MinimumRotation: 0
@@ -231,7 +231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6e92016bb25e4942b41b7ac10400078, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RigidBodyWrapper: {fileID: 8552059199170727950}
-  TargetRigidBodyWrapper: {fileID: 0}
+  PhysicsObjectHolder: {fileID: 8552059199170727950}
+  TargetPhysicsObjectHolder: {fileID: 0}
   MapBordersProviderHolder: {fileID: 0}
   HomingSpeed: 2

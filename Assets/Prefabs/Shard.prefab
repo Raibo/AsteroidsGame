@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e1808189163c344b9846c732ce19823, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DestroyableWrapper: {fileID: 8552059199170727940}
+  DestroyableHolder: {fileID: 8552059199170727940}
   ScoreCounterHolder: {fileID: 0}
   EnemiesCounterHolder: {fileID: 0}
   ScoreForDestruction: 50
@@ -199,7 +199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52fa86cc4cc132b43b23dff01fd9952d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RigidBodyWrapper: {fileID: 8552059199170727950}
+  PhysicsObject: {fileID: 8552059199170727950}
   MapBordersProviderHolder: {fileID: 0}
 --- !u!114 &-3380498906978069545
 MonoBehaviour:
@@ -213,7 +213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20ab8db2e78e8d74b93626717cd69031, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RigidBodyWrapper: {fileID: 8552059199170727950}
+  PhysicsObjectHolder: {fileID: 8552059199170727950}
   MinimumSpeed: 0.5
   MaximumSpeed: 1.5
   MinimumRotation: 0
