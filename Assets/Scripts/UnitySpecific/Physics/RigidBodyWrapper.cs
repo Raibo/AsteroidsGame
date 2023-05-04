@@ -47,6 +47,7 @@ namespace Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.Physics
         }
 
 
+        [ContextMenu("Revalidate")]
         private void OnValidate()
         {
             Transform = transform;

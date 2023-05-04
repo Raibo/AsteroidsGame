@@ -1,6 +1,7 @@
 ﻿using Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.ObjectLifeCycle.Creation;
 using Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.Physics;
 using Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.Extensions;
+using UnityEngine;
 
 namespace Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.ObjectLifeCycle.Creation
 {
@@ -21,7 +22,11 @@ namespace Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.ObjectLi
             _initializable = new BulletInitializer(PhysicsObject.Entity, Speed);
 
 
-        private void OnValidate() =>
+        [ContextMenu("Revalidate")]
+        private void OnValidate()
+        {
+            this.AssignIfEmpty(ref PhysicsObject);
             this.NotifyFieldNotFilledInScene(PhysicsObject, nameof(PhysicsObject));
+        }
     }
 }

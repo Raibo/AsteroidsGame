@@ -1061,8 +1061,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd827e2a954c8aa47aa56e8a91ba2952, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PhysicsObject: {fileID: 0}
-  ControlInputProvider: {fileID: 0}
+  PhysicsObject: {fileID: 1445721098}
+  ControlInputProvider: {fileID: 1445721101}
   SteeringSpeed: 300
   Acceleration: 5
   MaxSpeed: 10
@@ -1114,7 +1114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PhysicsObject: {fileID: 1445721098}
-  MapBordersProvider: {fileID: 0}
+  MapBordersProvider: {fileID: 1045864916}
 --- !u!114 &1445721101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1167,7 +1167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22f89de92e72eab4da360a6ca497847b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameOverHandler: {fileID: 0}
+  GameOverHandler: {fileID: 1045864919}
   DestroyedByLayers: 8
 --- !u!114 &1445721108
 MonoBehaviour:
@@ -1182,7 +1182,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Collider: {fileID: 1445721106}
-  CollisionHandler: {fileID: 0}
+  CollisionHandler: {fileID: 1445721107}
   CollisionLayers: 1
 --- !u!114 &1445721109
 MonoBehaviour:
@@ -1197,8 +1197,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Prefab: {fileID: 8297112833212302647, guid: e7210f964c6574c44a924099480f3139, type: 3}
-  MapBordersProvider: {fileID: 0}
-  ScoreCounter: {fileID: 0}
+  MapBordersProvider: {fileID: 1045864916}
+  ScoreCounter: {fileID: 1045864918}
   EnemiesCounter: {fileID: 0}
 --- !u!1 &1454235919
 GameObject:
@@ -1293,8 +1293,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 667aaf9630951bc4ab1b239e4e63d3b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShipPhysicsObject: {fileID: 0}
-  LaserAmmoProvider: {fileID: 0}
+  ShipPhysicsObject: {fileID: 1445721098}
+  LaserAmmoProvider: {fileID: 1931998764}
   Text: {fileID: 1454235921}
 --- !u!1 &1473398940
 GameObject:
@@ -1574,10 +1574,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LinkedAmmoDesctiption: Ammo for the laser
-  ControlInput: {fileID: 0}
-  PhysicsObject: {fileID: 0}
-  AmmoProvider: {fileID: 0}
-  LaserColliderProvider: {fileID: 0}
+  ControlInput: {fileID: 1445721101}
+  PhysicsObject: {fileID: 1445721098}
+  AmmoProvider: {fileID: 1931998764}
+  LaserColliderProvider: {fileID: 1931998760}
   LaserWidth: 0.3
 --- !u!114 &1931998762
 MonoBehaviour:
@@ -1592,9 +1592,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LinkedAmmoDesctiption: Ammo for the gun
-  ControlInput: {fileID: 0}
-  PhysicsObject: {fileID: 0}
-  AmmoProvider: {fileID: 0}
+  ControlInput: {fileID: 1445721101}
+  PhysicsObject: {fileID: 1445721098}
+  AmmoProvider: {fileID: 1931998765}
   BulletFactory: {fileID: 1445721109}
 --- !u!114 &1931998764
 MonoBehaviour:
@@ -1643,7 +1643,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   VisualGameObject: {fileID: 1343479772}
-  Weapon: {fileID: 0}
+  Weapon: {fileID: 1931998761}
   ShowTime: 0.05
 --- !u!1 &1937468677
 GameObject:

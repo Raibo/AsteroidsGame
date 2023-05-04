@@ -21,7 +21,11 @@ namespace Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.ObjectLi
             _lifetimeLimiter.Update(Time.deltaTime);
 
 
-        private void OnValidate() =>
+        [ContextMenu("Revalidate")]
+        private void OnValidate()
+        {
+            this.AssignIfEmpty(ref Destroyable);
             this.NotifyFieldNotFilled(Destroyable, nameof(Destroyable));
+        }
     }
 }

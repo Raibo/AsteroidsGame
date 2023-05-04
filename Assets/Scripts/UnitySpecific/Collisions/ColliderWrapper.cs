@@ -27,9 +27,11 @@ namespace Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.Collisio
             CollisionHandler.Entity.HandleCollision(collisionLayer);
 
 
+        [ContextMenu("Revalidate")]
         private void OnValidate()
         {
             Collider = GetComponent<Collider2D>();
+            this.AssignIfEmpty(ref CollisionHandler);
             this.NotifyFieldNotFilled(CollisionHandler, nameof(CollisionHandler));
         }
     }

@@ -29,8 +29,12 @@ namespace Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.Navigati
             _motionController.Update(Time.deltaTime);
 
 
+        [ContextMenu("Revalidate")]
         private void OnValidate()
         {
+            this.AssignIfEmpty(ref PhysicsObject);
+            this.AssignIfEmpty(ref ControlInputProvider);
+
             this.NotifyFieldNotFilledInScene(PhysicsObject, nameof(PhysicsObject));
             this.NotifyFieldNotFilledInScene(ControlInputProvider, nameof(ControlInputProvider));
         }

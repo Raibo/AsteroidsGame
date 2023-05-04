@@ -26,8 +26,13 @@ namespace Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.Weapons
             _weapon.Update();
 
 
+        [ContextMenu("Revalidate")]
         private void OnValidate()
         {
+            this.AssignIfEmpty(ref ControlInput);
+            this.AssignIfEmpty(ref PhysicsObject);
+            this.AssignIfEmpty(ref AmmoProvider);
+
             this.NotifyFieldNotFilled(ControlInput, nameof(ControlInput));
             this.NotifyFieldNotFilled(PhysicsObject, nameof(PhysicsObject));
             this.NotifyFieldNotFilled(AmmoProvider, nameof(AmmoProvider));

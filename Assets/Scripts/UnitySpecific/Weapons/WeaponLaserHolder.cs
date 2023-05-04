@@ -1,6 +1,7 @@
 ﻿using Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.Collisions;
 using Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.Weapons;
 using Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.Extensions;
+using UnityEngine;
 
 namespace Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.Weapons
 {
@@ -17,7 +18,11 @@ namespace Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.Weapons
         }
 
 
-        private void OnValidate() =>
+        [ContextMenu("Revalidate")]
+        private void OnValidate()
+        {
+            this.AssignIfEmpty(ref LaserColliderProvider);
             this.NotifyFieldNotFilled(LaserColliderProvider, nameof(LaserColliderProvider));
+        }
     }
 }

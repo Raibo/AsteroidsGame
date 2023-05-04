@@ -5,6 +5,7 @@ using Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.Obje
 using Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.ObjectLifeCycle.Destruction;
 using Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.Extensions;
 using Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.ObjectLifeCycle.Creation;
+using UnityEngine;
 
 namespace Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.CollisionHandlers
 {
@@ -28,10 +29,14 @@ namespace Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.Collisio
         }
 
 
+        [ContextMenu("Revalidate")]
         private void OnValidate()
         {
+            this.AssignIfEmpty(ref Destroyable);
+
             this.NotifyFieldNotFilledInScene(Destroyable, nameof(Destroyable));
             this.NotifyFieldNotFilledInScene(ScoreCounter, nameof(ScoreCounter));
+            this.NotifyFieldNotFilledInScene(EnemiesCounter, nameof(EnemiesCounter));
         }
     }
 }

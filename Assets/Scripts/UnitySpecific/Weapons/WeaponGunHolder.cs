@@ -1,6 +1,7 @@
 ﻿using Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.ObjectLifeCycle.Creation;
 using Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.Weapons;
 using Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.Extensions;
+using UnityEngine;
 
 namespace Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.Weapons
 {
@@ -13,7 +14,11 @@ namespace Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.Weapons
             _weapon = new WeaponGun(AmmoProvider.Entity, ControlInput.Entity, PhysicsObject.Entity, BulletFactory.Entity);
 
 
-        private void OnValidate() =>
+        [ContextMenu("Revalidate")]
+        private void OnValidate()
+        {
+            this.AssignIfEmpty(ref BulletFactory);
             this.NotifyFieldNotFilled(BulletFactory, nameof(BulletFactory));
+        }
     }
 }

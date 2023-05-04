@@ -29,6 +29,7 @@ namespace Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.ObjectLi
             _enemySpawner.Update(Time.deltaTime);
 
 
+        [ContextMenu("Revalidate")]
         private void OnValidate()
         {
             Transform = transform;

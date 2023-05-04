@@ -47,6 +47,7 @@ namespace Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.ObjectLi
             _initializableBuffer = new List<IInitializedAfterFabrication>();
 
 
+        [ContextMenu("Revalidate")]
         private void OnValidate()
         {
             this.NotifyFieldNotFilled(Prefab, nameof(Prefab));

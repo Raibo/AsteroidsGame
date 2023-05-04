@@ -7,6 +7,7 @@ using Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.Obje
 using Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.Physics;
 using Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.Extensions;
 using Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.ObjectLifeCycle.Creation;
+using UnityEngine;
 
 namespace Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.CollisionHandlers
 {
@@ -32,11 +33,18 @@ namespace Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.Collisio
         }
 
 
+        [ContextMenu("Revalidate")]
         private void OnValidate()
         {
+            this.AssignIfEmpty(ref PhysicsObject);
+            this.AssignIfEmpty(ref EnemyFactory);
+            this.AssignIfEmpty(ref Destroyable);
+
             this.NotifyFieldNotFilledInScene(PhysicsObject, nameof(PhysicsObject));
+            this.NotifyFieldNotFilledInScene(EnemyFactory, nameof(EnemyFactory));
             this.NotifyFieldNotFilledInScene(Destroyable, nameof(Destroyable));
             this.NotifyFieldNotFilledInScene(ScoreCounter, nameof(ScoreCounter));
+            this.NotifyFieldNotFilledInScene(EnemiesCounter, nameof(EnemiesCounter));
         }
     }
 }

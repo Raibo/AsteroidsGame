@@ -1,5 +1,6 @@
 ﻿using Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.Physics;
 using Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.Extensions;
+using UnityEngine;
 
 namespace Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.Physics
 {
@@ -21,8 +22,11 @@ namespace Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.Physics
             _mapBordersTeleporter.Update();
 
 
+        [ContextMenu("Revalidate")]
         private void OnValidate()
         {
+            this.AssignIfEmpty(ref PhysicsObject);
+
             this.NotifyFieldNotFilledInScene(PhysicsObject, nameof(PhysicsObject));
             this.NotifyFieldNotFilledInScene(MapBordersProvider, nameof(MapBordersProvider));
         }
