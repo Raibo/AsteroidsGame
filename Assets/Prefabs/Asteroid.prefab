@@ -14,10 +14,10 @@ GameObject:
   - component: {fileID: 8552059199170727941}
   - component: {fileID: 8552059199170727950}
   - component: {fileID: 8552059199170727940}
-  - component: {fileID: 8552059199170727947}
   - component: {fileID: 8552059199170727946}
   - component: {fileID: -5441158118991071196}
   - component: {fileID: -3380498906978069545}
+  - component: {fileID: 1275562239914781617}
   m_Layer: 8
   m_Name: Asteroid
   m_TagString: Untagged
@@ -155,23 +155,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a34465a7d91ea8b43ad35ffeeb9f9325, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8552059199170727947
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8552059199170727949}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e1808189163c344b9846c732ce19823, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DestroyableWrapper: {fileID: 8552059199170727940}
-  ScoreCounterHolder: {fileID: 0}
-  EnemiesCounterHolder: {fileID: 0}
-  ScoreForDestruction: 100
-  DestroyedByLayers: 6
 --- !u!114 &8552059199170727946
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,7 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Collider: {fileID: 8552059199170727941}
-  CollisionHandlerHolder: {fileID: 8552059199170727947}
+  CollisionHandlerHolder: {fileID: 1275562239914781617}
   CollisionLayers: 8
 --- !u!114 &-5441158118991071196
 MonoBehaviour:
@@ -218,3 +201,22 @@ MonoBehaviour:
   MaximumSpeed: 4
   MinimumRotation: 0
   MaximumRotation: 360
+--- !u!114 &1275562239914781617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8552059199170727949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2b9556230228664ab87025bf53acfc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RigidBodyWrapper: {fileID: 8552059199170727950}
+  EnemyFactory: {fileID: 0}
+  DestroyableWrapper: {fileID: 8552059199170727940}
+  ScoreCounterHolder: {fileID: 0}
+  EnemiesCounterHolder: {fileID: 0}
+  ScoreForDestruction: 0
+  DestroyedByLayers: 0

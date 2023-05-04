@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Assets.Scripts.Extensions
+namespace Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.Extensions
 {
     public static class MonoBehaviourExtensions
     {

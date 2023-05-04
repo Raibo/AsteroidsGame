@@ -1,7 +1,7 @@
-﻿using AsteroidsVector2 = Hudossay.Asteroids.Assets.Scripts.EngineIndependent.DataStructs.Vector2;
+﻿using AsteroidsVector2 = Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.Physics.Vector2;
 using UnityVector2 = UnityEngine.Vector2;
 
-namespace Assets.Scripts.Extensions
+namespace Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.Extensions
 {
     public static class Vector2Extensions
     {

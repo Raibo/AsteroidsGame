@@ -1138,7 +1138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8bcc89ef9f819440af853d630e9f7fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Prefab: {fileID: 3846177932297414331, guid: 34d5d7afa6cdd2d409f0952d542fd002, type: 3}
+  Prefab: {fileID: 8552059199170727949, guid: e57d5933b79999944b577c97635338b0, type: 3}
   MapBordersProviderHolder: {fileID: 1045864916}
   ScoreCounterHolder: {fileID: 1045864918}
   EnemiesCounterHolder: {fileID: 840185773}
