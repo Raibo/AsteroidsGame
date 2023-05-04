@@ -38,9 +38,11 @@ namespace Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.
                     return;
                 case SteeringDirection.Left:
                     _physicsObject.Rotation += time * _steeringSpeed;
+                    _physicsObject.Rotation %= 360;
                     break;
                 case SteeringDirection.Right:
                     _physicsObject.Rotation -= time * _steeringSpeed;
+                    _physicsObject.Rotation %= 360;
                     break;
             }
         }

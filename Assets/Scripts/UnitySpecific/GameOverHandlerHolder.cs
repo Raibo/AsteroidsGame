@@ -22,7 +22,7 @@ namespace Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific
 
         private void OnGameOver(int score)
         {
-            GameOverMessage.text = $"Game Over.\nScore: {score}";
+            GameOverMessage.text = $"Game Over\nScore: {score}";
             GameOverMessage.gameObject.SetActive(true);
             Time.timeScale = 0f;
         }
