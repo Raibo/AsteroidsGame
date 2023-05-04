@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.Weapons
 {
-    public class WeaponHolder : EntityHolder<IWeapon>
+    public abstract class WeaponHolder : EntityHolder<IWeapon>
     {
 #if UNITY_EDITOR
         public string LinkedAmmoDesctiption;

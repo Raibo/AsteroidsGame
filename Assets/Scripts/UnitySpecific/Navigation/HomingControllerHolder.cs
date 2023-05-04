@@ -18,11 +18,8 @@ namespace Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.Navigati
         private HomingController _homingController;
 
 
-        public void Initialize()
-        {
-            _homingController = new HomingController(PhysicsObject.Entity, TargetPhysicsObject.Entity, MapBordersProvider.Entity,
-                HomingSpeed);
-        }
+        public void Initialize() =>
+            _homingController = new HomingController(PhysicsObject.Entity, TargetPhysicsObject.Entity, MapBordersProvider.Entity, HomingSpeed);
 
 
         private void FixedUpdate() =>

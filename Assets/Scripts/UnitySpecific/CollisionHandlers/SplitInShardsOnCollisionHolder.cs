@@ -19,6 +19,7 @@ namespace Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.Collisio
         public EntityHolder<IScoreCounter> ScoreCounter;
         public EntityHolder<IEnemiesCounter> EnemiesCounter;
         public int ScoreForDestruction;
+        public int ShardsCount;
         public CollisionLayers DestroyedByLayers;
 
         public override ICollisionHandler Entity => _collisionHandler;
@@ -29,7 +30,7 @@ namespace Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.Collisio
         public void Initialize()
         {
             _collisionHandler = new SplitInShardsCollisionHandler(Destroyable.Entity, ScoreCounter.Entity,
-                DestroyedByLayers, EnemiesCounter?.Entity, EnemyFactory.Entity, PhysicsObject.Entity, ScoreForDestruction);
+                DestroyedByLayers, EnemiesCounter?.Entity, EnemyFactory.Entity, PhysicsObject.Entity, ScoreForDestruction, ShardsCount);
         }
 
 

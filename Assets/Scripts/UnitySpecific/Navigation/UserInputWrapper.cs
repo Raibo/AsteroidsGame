@@ -63,43 +63,43 @@ namespace Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.Navigati
         }
 
 
-        public void StartSteeringLeft() =>
+        private void StartSteeringLeft() =>
             _steeringDirection |= SteeringDirection.Left;
 
 
-        public void StartSteeringRight() =>
+        private void StartSteeringRight() =>
             _steeringDirection |= SteeringDirection.Right;
 
 
-        public void StopSteeringLeft() =>
+        private void StopSteeringLeft() =>
             _steeringDirection &= ~SteeringDirection.Left;
 
 
-        public void StopSteeringRight() =>
+        private void StopSteeringRight() =>
             _steeringDirection &= ~SteeringDirection.Right;
 
 
-        public void StartAccelerating() =>
+        private void StartAccelerating() =>
             _isAccelerating = true;
 
 
-        public void StopAccelerating() =>
+        private void StopAccelerating() =>
             _isAccelerating = false;
 
 
-        public void StartShootingGun() =>
+        private void StartShootingGun() =>
             _isShootingGun = true;
 
 
-        public void StopShootingGun() =>
+        private void StopShootingGun() =>
             _isShootingGun = false;
 
 
-        public void StartShootingLaser() =>
+        private void StartShootingLaser() =>
             _isShootingLaser = true;
 
 
-        public void StopShootingLaser() =>
+        private void StopShootingLaser() =>
             _isShootingLaser = false;
     }
 }

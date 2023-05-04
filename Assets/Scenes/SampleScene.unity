@@ -1063,7 +1063,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PhysicsObject: {fileID: 1445721098}
   ControlInputProvider: {fileID: 1445721101}
-  SteeringSpeed: 300
+  SteeringSpeed: 250
   Acceleration: 5
   MaxSpeed: 10
 --- !u!114 &1445721098
@@ -1561,6 +1561,7 @@ MonoBehaviour:
   Layer:
     serializedVersion: 2
     m_Bits: 384
+  CastDistance: 15
 --- !u!114 &1931998761
 MonoBehaviour:
   m_ObjectHideFlags: 0

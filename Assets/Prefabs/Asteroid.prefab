@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Collider: {fileID: 8552059199170727941}
-  CollisionHandlerHolder: {fileID: 1275562239914781617}
+  CollisionHandler: {fileID: 1275562239914781617}
   CollisionLayers: 8
 --- !u!114 &-5441158118991071196
 MonoBehaviour:
@@ -183,7 +183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PhysicsObject: {fileID: 8552059199170727950}
-  MapBordersProviderHolder: {fileID: 0}
+  MapBordersProvider: {fileID: 0}
 --- !u!114 &-3380498906978069545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,7 +196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20ab8db2e78e8d74b93626717cd69031, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PhysicsObjectHolder: {fileID: 8552059199170727950}
+  PhysicsObject: {fileID: 8552059199170727950}
   MinimumSpeed: 1
   MaximumSpeed: 2.5
   MinimumRotation: 0
@@ -213,10 +213,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2b9556230228664ab87025bf53acfc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PhysicsObjectHolder: {fileID: 8552059199170727950}
+  PhysicsObject: {fileID: 8552059199170727950}
   EnemyFactory: {fileID: 0}
-  DestroyableWrapper: {fileID: 8552059199170727940}
-  ScoreCounterHolder: {fileID: 0}
-  EnemiesCounterHolder: {fileID: 0}
+  Destroyable: {fileID: 8552059199170727940}
+  ScoreCounter: {fileID: 0}
+  EnemiesCounter: {fileID: 0}
   ScoreForDestruction: 100
+  ShardsCount: 2
   DestroyedByLayers: 6

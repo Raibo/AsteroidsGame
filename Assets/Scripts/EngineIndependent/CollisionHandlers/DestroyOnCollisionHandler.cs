@@ -13,6 +13,7 @@ namespace Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.
         private readonly IEnemiesCounter _enemiesCounter;
         private readonly int _scoreForDestruction;
 
+
         public DestroyOnCollisionHandler(IDestroyable destroyable, IScoreCounter scoreCounter, CollisionLayers destroyingCollisionLayers,
             IEnemiesCounter enemiesCounter, int scoreForDestruction)
         {

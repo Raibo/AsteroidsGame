@@ -10,26 +10,32 @@ namespace Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.
     {
         private readonly IObjectFactory _shardsFactory;
         private readonly IPhysicsObject _physicsObject;
+        private readonly int _shardsCount;
 
 
         public SplitInShardsCollisionHandler(IDestroyable destroyable, IScoreCounter scoreCounter, CollisionLayers destroyingCollisionLayers,
-            IEnemiesCounter enemiesCounter, IObjectFactory shardsFactory, IPhysicsObject physicsObject, int scoreForDestruction)
+            IEnemiesCounter enemiesCounter, IObjectFactory shardsFactory, IPhysicsObject physicsObject, int scoreForDestruction, int shardsCount)
             : base(destroyable, scoreCounter, destroyingCollisionLayers, enemiesCounter, scoreForDestruction)
         {
             _shardsFactory = shardsFactory;
             _physicsObject = physicsObject;
+            _shardsCount = shardsCount;
         }
 
 
         public override void HandleCollision(CollisionLayers otherObjectCollisionLayers)
         {
             if ((otherObjectCollisionLayers & _destroyingCollisionLayers) != CollisionLayers.None)
-            {
-                _shardsFactory.Create(_physicsObject.Position, _physicsObject.Velocity, _physicsObject.Rotation);
-                _shardsFactory.Create(_physicsObject.Position, _physicsObject.Velocity, _physicsObject.Rotation);
-            }
+                CreateShards();
 
             base.HandleCollision(otherObjectCollisionLayers);
+        }
+
+
+        private void CreateShards()
+        {
+            for (int i = 0; i < _shardsCount; i++)
+                _shardsFactory.Create(_physicsObject.Position, _physicsObject.Velocity, _physicsObject.Rotation);
         }
     }
 }

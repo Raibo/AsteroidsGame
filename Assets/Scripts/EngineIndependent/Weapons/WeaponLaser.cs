@@ -14,14 +14,8 @@ namespace Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.
         protected override bool IsShooting => _controlInputProvider.IsShootingLaser;
 
 
-        public WeaponLaser
-            (
-                IAmmoProvider ammoProvider,
-                IControlInputProvider controlInputProvider,
-                IPhysicsObject originObject,
-                ILaserColliderProvider laserColliderProvider,
-                float laserWidth
-            )
+        public WeaponLaser(IAmmoProvider ammoProvider, IControlInputProvider controlInputProvider, IPhysicsObject originObject,
+            ILaserColliderProvider laserColliderProvider, float laserWidth)
             : base(ammoProvider, controlInputProvider, originObject)
         {
             _laserColliderProvider = laserColliderProvider;

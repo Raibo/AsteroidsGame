@@ -2,8 +2,8 @@
 
 namespace Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific
 {
-    public abstract class EntityHolder<TInterface> : MonoBehaviour where TInterface : class
+    public abstract class EntityHolder<TEntity> : MonoBehaviour where TEntity : class
     {
-        public abstract TInterface Entity { get; }
+        public abstract TEntity Entity { get; }
     }
 }

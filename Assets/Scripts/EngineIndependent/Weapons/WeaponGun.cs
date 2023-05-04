@@ -11,13 +11,8 @@ namespace Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.
         protected override bool IsShooting => _controlInputProvider.IsShootingGun;
 
 
-        public WeaponGun
-            (
-                IAmmoProvider ammoProvider,
-                IControlInputProvider controlInputProvider,
-                IPhysicsObject originObject,
-                IObjectFactory bulletFactory
-            )
+        public WeaponGun(IAmmoProvider ammoProvider, IControlInputProvider controlInputProvider, IPhysicsObject originObject,
+            IObjectFactory bulletFactory)
             : base(ammoProvider, controlInputProvider, originObject)
         {
             _bulletFactory = bulletFactory;

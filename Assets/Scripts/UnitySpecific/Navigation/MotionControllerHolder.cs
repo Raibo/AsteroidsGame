@@ -18,11 +18,8 @@ namespace Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.Navigati
         private MotionController _motionController;
 
 
-        public void Awake()
-        {
-            _motionController = new MotionController(PhysicsObject.Entity, ControlInputProvider.Entity,
-                SteeringSpeed, Acceleration, MaxSpeed);
-        }
+        public void Awake() =>
+            _motionController = new MotionController(PhysicsObject.Entity, ControlInputProvider.Entity, SteeringSpeed, Acceleration, MaxSpeed);
 
 
         private void FixedUpdate() =>

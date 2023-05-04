@@ -9,10 +9,9 @@ namespace Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.Collisio
     public class CircleCastWrapper : EntityHolder<ILaserColliderProvider>, ILaserColliderProvider
     {
         public LayerMask Layer;
+        public float CastDistance;
 
         public override ILaserColliderProvider Entity => this;
-
-        private const float CastDistance = 15f;
 
 
         public ICollidable[] GetHitObjects(AsteroidsVector2 origin, AsteroidsVector2 direction, float width)

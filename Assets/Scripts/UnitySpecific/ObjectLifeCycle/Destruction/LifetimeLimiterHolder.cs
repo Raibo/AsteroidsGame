@@ -13,6 +13,7 @@ namespace Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.ObjectLi
 
         private LifetimeLimiter _lifetimeLimiter;
 
+
         private void Awake() =>
             _lifetimeLimiter = new LifetimeLimiter(Destroyable.Entity, Lifetime);
 
