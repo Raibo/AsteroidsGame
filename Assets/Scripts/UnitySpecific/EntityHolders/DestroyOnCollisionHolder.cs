@@ -13,6 +13,7 @@ namespace Assets.Scripts.EntityHolders
     {
         public DestroyableWrapper DestroyableWrapper;
         public ScoreCounterHolder ScoreCounterHolder;
+        public EnemiesCounterHolder EnemiesCounterHolder;
         public int ScoreForDestruction;
         public CollisionLayers DestroyedByLayers;
         public override ICollisionHandler CollisionHandler => _collisionHandler;
@@ -23,7 +24,7 @@ namespace Assets.Scripts.EntityHolders
         public void Initialize()
         {
             _collisionHandler = new DestroyOnCollisionHandler(DestroyableWrapper, ScoreCounterHolder.ScoreCounter, DestroyedByLayers,
-                ScoreForDestruction);
+                EnemiesCounterHolder?.EnemiesCounter, ScoreForDestruction);
         }
 
 

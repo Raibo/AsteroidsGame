@@ -15,6 +15,7 @@ namespace Assets.Scripts.Wrappers
         public GameObject Prefab;
         public MapBordersProviderHolder MapBordersProviderHolder;
         public ScoreCounterHolder ScoreCounterHolder;
+        public EnemiesCounterHolder EnemiesCounterHolder;
 
         private static List<IInitializable> _initializableBuffer;
 
@@ -31,7 +32,10 @@ namespace Assets.Scripts.Wrappers
             physicsObject.Velocity = velocity;
 
             newObject.GetComponent<MapBordersTeleporterHolder>().MapBordersProviderHolder = MapBordersProviderHolder;
-            newObject.GetComponent<DestroyOnCollisionHolder>().ScoreCounterHolder = ScoreCounterHolder;
+
+            var destroyOnCollisionHolder = newObject.GetComponent<DestroyOnCollisionHolder>();
+            destroyOnCollisionHolder.ScoreCounterHolder = ScoreCounterHolder;
+            destroyOnCollisionHolder.EnemiesCounterHolder = EnemiesCounterHolder;
 
             newObject.GetComponents(_initializableBuffer);
 
