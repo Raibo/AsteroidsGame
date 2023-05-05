@@ -3,6 +3,7 @@
     public class AmmoProvider : IAmmoProvider
     {
         private readonly int _maximumCharges;
+        private int _initialAvailableCharges;
         private int _availableCharges;
 
         private readonly float _timeToGainCharge;
@@ -27,15 +28,12 @@
         public AmmoProvider(float timeShotCooldown, float timeToGainCharge, int maximumCharges, int initialCharges)
         {
             _maximumCharges = maximumCharges;
-            _availableCharges = initialCharges;
+            _initialAvailableCharges = initialCharges;
 
             _timeShotCooldown = timeShotCooldown;
             _timeToGainCharge = timeToGainCharge;
 
-            _remainingNextChargeTime = timeToGainCharge;
-            _remainingCooldownTime = timeShotCooldown;
-
-            _isShotCooldownReady = true;
+            Reset();
         }
 
 
@@ -55,6 +53,16 @@
         {
             AccountTimeToGainCharge(time);
             AccountTimeToNextShot(time);
+        }
+
+
+        public void Reset()
+        {
+            _remainingNextChargeTime = _timeToGainCharge;
+            _remainingCooldownTime = _timeShotCooldown;
+            _availableCharges = _initialAvailableCharges;
+
+            _isShotCooldownReady = true;
         }
 
 

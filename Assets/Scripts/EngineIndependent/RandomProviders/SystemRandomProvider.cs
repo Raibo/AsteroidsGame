@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent
+namespace Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.RandomProviders
 {
     public class SystemRandomProvider : IRandomProvider
     {

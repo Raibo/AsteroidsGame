@@ -10,5 +10,6 @@
 
         public bool TryUseCharge();
         public void Update(float time);
+        public void Reset();
     }
 }

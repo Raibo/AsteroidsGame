@@ -470,6 +470,8 @@ GameObject:
   - component: {fileID: 1045864916}
   - component: {fileID: 1045864918}
   - component: {fileID: 1045864919}
+  - component: {fileID: 1045864920}
+  - component: {fileID: 1045864921}
   m_Layer: 0
   m_Name: Global Objects Holder
   m_TagString: Untagged
@@ -535,8 +537,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 859e12e465794514889a47e3464f2807, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ScoreCounter: {fileID: 1045864918}
-  GameOverMessage: {fileID: 1379755098}
+  NewGameHandler: {fileID: 1379755100}
+  GameStateHandler: {fileID: 1045864920}
+--- !u!114 &1045864920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1045864915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e617c2b51739aef47aab1bb6aef4cc8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1045864921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1045864915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 985bf1c87e2173048b8bab4374158d0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnemiesCounters:
+  - {fileID: 840185773}
+  - {fileID: 1891097162}
+  - {fileID: 1931998767}
 --- !u!1 &1144808233
 GameObject:
   m_ObjectHideFlags: 0
@@ -782,8 +812,10 @@ GameObject:
   - component: {fileID: 1379755096}
   - component: {fileID: 1379755099}
   - component: {fileID: 1379755098}
+  - component: {fileID: 1379755100}
+  - component: {fileID: 1379755101}
   m_Layer: 0
-  m_Name: Game Over Text
+  m_Name: New Game Proposal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -853,6 +885,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1379755095}
   m_CullTransparentMesh: 1
+--- !u!114 &1379755100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1379755095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a63362705d4e2e94f8f57c383d57b403, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameStateHandler: {fileID: 1045864920}
+  EnemiesCounter: {fileID: 1045864921}
+  ShipObject: {fileID: 1445721098}
+  ShipLaserAmmo: {fileID: 1931998764}
+  ScoreCounter: {fileID: 1045864918}
+  UiInputProvider: {fileID: 1379755101}
+  NewGameProposal: {fileID: 1379755098}
+--- !u!114 &1379755101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1379755095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 562a6ffdbc0e602428ac06ab41c086c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1445360319
 GameObject:
   m_ObjectHideFlags: 0
@@ -971,7 +1034,6 @@ GameObject:
   - component: {fileID: 1445721097}
   - component: {fileID: 1445721100}
   - component: {fileID: 1445721101}
-  - component: {fileID: 1445721109}
   - component: {fileID: 1445721107}
   - component: {fileID: 1445721108}
   m_Layer: 6
@@ -1184,22 +1246,6 @@ MonoBehaviour:
   Collider: {fileID: 1445721106}
   CollisionHandler: {fileID: 1445721107}
   CollisionLayers: 1
---- !u!114 &1445721109
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1445721094}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88ad09c2e6bed344f997bbe13e2394f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Prefab: {fileID: 8297112833212302647, guid: e7210f964c6574c44a924099480f3139, type: 3}
-  MapBordersProvider: {fileID: 1045864916}
-  ScoreCounter: {fileID: 1045864918}
-  EnemiesCounter: {fileID: 0}
 --- !u!1 &1454235919
 GameObject:
   m_ObjectHideFlags: 0
@@ -1523,6 +1569,8 @@ GameObject:
   - component: {fileID: 1931998761}
   - component: {fileID: 1931998760}
   - component: {fileID: 1931998766}
+  - component: {fileID: 1931998768}
+  - component: {fileID: 1931998767}
   m_Layer: 6
   m_Name: Weapons
   m_TagString: Untagged
@@ -1596,7 +1644,7 @@ MonoBehaviour:
   ControlInput: {fileID: 1445721101}
   PhysicsObject: {fileID: 1445721098}
   AmmoProvider: {fileID: 1931998765}
-  BulletFactory: {fileID: 1445721109}
+  BulletFactory: {fileID: 1931998768}
 --- !u!114 &1931998764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1646,6 +1694,34 @@ MonoBehaviour:
   VisualGameObject: {fileID: 1343479772}
   Weapon: {fileID: 1931998761}
   ShowTime: 0.05
+--- !u!114 &1931998767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1931998758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efaf17eb95edcda4f8746be4e37f2c7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1931998768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1931998758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88ad09c2e6bed344f997bbe13e2394f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Prefab: {fileID: 8297112833212302647, guid: e7210f964c6574c44a924099480f3139, type: 3}
+  MapBordersProvider: {fileID: 1045864916}
+  ScoreCounter: {fileID: 1045864918}
+  EnemiesCounter: {fileID: 1931998767}
 --- !u!1 &1937468677
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,5 +4,6 @@
     {
         public int CurrentScore { get; }
         public void AddScore(int score);
+        public void Reset();
     }
 }

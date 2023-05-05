@@ -9,5 +9,9 @@
 
         public void AddScore(int score) =>
             _currentScore += score;
+
+
+        public void Reset() =>
+            _currentScore = 0;
     }
 }

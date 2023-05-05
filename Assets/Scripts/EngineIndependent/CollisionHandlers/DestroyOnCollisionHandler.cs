@@ -30,7 +30,7 @@ namespace Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.
             if ((otherObjectCollisionLayers & _destroyingCollisionLayers) != CollisionLayers.None)
             {
                 _scoreCounter.AddScore(_scoreForDestruction);
-                _enemiesCounter?.DecreaseEnemyCount();
+                _enemiesCounter?.RemoveCountedEnemy(_destroyable);
                 _destroyable.Destroy();
             }
         }

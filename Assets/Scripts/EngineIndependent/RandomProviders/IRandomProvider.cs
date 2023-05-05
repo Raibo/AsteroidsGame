@@ -1,4 +1,4 @@
-﻿namespace Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent
+﻿namespace Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.RandomProviders
 {
     public interface IRandomProvider
     {

@@ -1,7 +1,7 @@
 ﻿using Assets.Scripts.EngineIndependent.GameLogicInterfaces;
-using Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent;
 using Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.CollisionHandlers;
 using Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.Collisions;
+using Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.GameLifeCycle;
 using Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.Extensions;
 using UnityEngine;
 

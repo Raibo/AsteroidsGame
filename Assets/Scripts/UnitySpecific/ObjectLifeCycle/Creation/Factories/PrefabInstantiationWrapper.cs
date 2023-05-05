@@ -1,5 +1,6 @@
 ﻿using Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.ObjectLifeCycle.Counters;
 using Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.ObjectLifeCycle.Creation;
+using Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.ObjectLifeCycle.Destruction;
 using Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.Physics;
 using Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.Extensions;
 using System.Collections.Generic;
@@ -36,7 +37,8 @@ namespace Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.ObjectLi
             foreach (IInitializedAfterFabrication initializedComponent in _initializableBuffer)
                 initializedComponent.Initialize();
 
-            EnemiesCounter?.Entity.IncreaseEnemyCount();
+            var newObjectDestroyable = newObject.GetComponent<EntityHolder<IDestroyable>>();
+            EnemiesCounter?.Entity.AddCountedEnemy(newObjectDestroyable.Entity);
         }
 
 
