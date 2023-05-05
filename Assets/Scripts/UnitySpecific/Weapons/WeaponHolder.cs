@@ -23,7 +23,7 @@ namespace Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.Weapons
 
 
         private void FixedUpdate() =>
-            _weapon.Update();
+            _weapon.Update(Time.deltaTime);
 
 
         [ContextMenu("Revalidate")]

@@ -1610,6 +1610,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 384
   CastDistance: 15
+  HitBufferCapacity: 10
 --- !u!114 &1931998761
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1628,6 +1629,8 @@ MonoBehaviour:
   AmmoProvider: {fileID: 1931998764}
   LaserColliderProvider: {fileID: 1931998760}
   LaserWidth: 0.3
+  ChannelingTime: 1
+  HitBufferCapacity: 10
 --- !u!114 &1931998762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1693,7 +1696,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   VisualGameObject: {fileID: 1343479772}
   Weapon: {fileID: 1931998761}
-  ShowTime: 0.05
+  ShowTime: 1
 --- !u!114 &1931998767
 MonoBehaviour:
   m_ObjectHideFlags: 0

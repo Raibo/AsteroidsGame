@@ -27,7 +27,7 @@ namespace Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.
 
         public void Initialize()
         {
-            _physicsObject.Rotation = GetRandomRotation();
+            _physicsObject.Rotation += GetRandomRotation();
             _physicsObject.PushForward(GetRandomSpeed());
         }
 

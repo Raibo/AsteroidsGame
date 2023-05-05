@@ -5,6 +5,6 @@ namespace Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.
     public interface IWeapon
     {
         public event Action ShotOccured;
-        public void Update();
+        public void Update(float time);
     }
 }

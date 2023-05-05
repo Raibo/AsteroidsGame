@@ -1,8 +1,8 @@
-﻿using Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.Weapons;
+﻿using Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.Physics;
+using Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.Weapons;
 using Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.Extensions;
-using System;
-using System.Threading.Tasks;
 using UnityEngine;
+using AsteroidsTimer = Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.Physics.Timer;
 
 namespace Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.VisualEffects
 {
@@ -13,16 +13,29 @@ namespace Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.VisualEf
 
         public float ShowTime;
 
-
-        private void Start() =>
-            Weapon.Entity.ShotOccured += ShowVisuals;
+        private ITimer _timer;
 
 
-        private async void ShowVisuals()
+        private void Start()
         {
+            _timer = new AsteroidsTimer();
+            Weapon.Entity.ShotOccured += ShowVisuals;
+        }
+
+
+        private void FixedUpdate()
+        {
+            _timer.Update(Time.deltaTime);
+
+            if (_timer.IsFinished && VisualGameObject.activeSelf)
+                VisualGameObject.SetActive(false);
+        }
+
+
+        private void ShowVisuals()
+        {
+            _timer.StartCountdown(ShowTime);
             VisualGameObject.SetActive(true);
-            await Task.Delay(TimeSpan.FromSeconds(ShowTime));
-            VisualGameObject.SetActive(false);
         }
 
 

@@ -23,7 +23,7 @@ namespace Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.
         }
 
 
-        public void Update()
+        public virtual void Update(float time)
         {
             if (IsShooting && _ammoProvider.TryUseCharge())
             {

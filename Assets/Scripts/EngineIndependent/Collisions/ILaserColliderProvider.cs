@@ -4,6 +4,6 @@ namespace Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.
 {
     public interface ILaserColliderProvider
     {
-        ICollidable[] GetHitObjects(Vector2 origin, Vector2 direction, float width);
+        int GetHitObjects(Vector2 origin, Vector2 direction, float width, ICollidable[] buffer);
     }
 }
