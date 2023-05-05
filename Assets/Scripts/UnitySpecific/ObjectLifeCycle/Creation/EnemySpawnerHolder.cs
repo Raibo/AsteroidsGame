@@ -1,8 +1,10 @@
 ﻿using Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.ObjectLifeCycle.Counters;
 using Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.ObjectLifeCycle.Creation;
+using Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.Physics;
 using Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.RandomProviders;
 using Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.Extensions;
 using UnityEngine;
+using UnityVector2 = UnityEngine.Vector2;
 
 namespace Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.ObjectLifeCycle.Creation
 {
@@ -20,8 +22,8 @@ namespace Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.ObjectLi
 
         private void Awake()
         {
-            _enemySpawner = new EnemySpawner(EnemyFactory.Entity, EnemiesCounter.Entity, new SystemRandomProvider(),
-                ((Vector2)Transform.position).ToAsteroidsVector2(), MinimumInterval, MaximumInterval, EnemyLimit);
+            _enemySpawner = new EnemySpawner(new Timer(), EnemyFactory.Entity, EnemiesCounter.Entity, new SystemRandomProvider(),
+                ((UnityVector2)Transform.position).ToAsteroidsVector2(), MinimumInterval, MaximumInterval, EnemyLimit);
         }
 
 

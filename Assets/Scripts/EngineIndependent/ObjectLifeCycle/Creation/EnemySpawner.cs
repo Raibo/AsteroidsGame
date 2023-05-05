@@ -6,6 +6,7 @@ namespace Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.
 {
     public class EnemySpawner
     {
+        private readonly ITimer _timer;
         private readonly IObjectFactory _enemiesFactory;
         private readonly IEnemiesCounter _enemiesCounter;
         private readonly IRandomProvider _randomProvider;
@@ -14,12 +15,11 @@ namespace Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.
         private readonly float _maximumInterval;
         private readonly int _enemiesCountLimit;
 
-        private float _timeBeforeNextAttempt;
 
-
-        public EnemySpawner(IObjectFactory enemiesFactory, IEnemiesCounter enemiesCounter, IRandomProvider randomProvider,
+        public EnemySpawner(ITimer timer, IObjectFactory enemiesFactory, IEnemiesCounter enemiesCounter, IRandomProvider randomProvider,
             Vector2 origin, float minimumInterval, float MaximumInterval, int enemiesCountLimit)
         {
+            _timer = timer;
             _enemiesFactory = enemiesFactory;
             _enemiesCounter = enemiesCounter;
             _randomProvider = randomProvider;
@@ -28,18 +28,18 @@ namespace Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.
             _maximumInterval = MaximumInterval;
             _enemiesCountLimit = enemiesCountLimit;
 
-            _timeBeforeNextAttempt = GetNextAttemptTime();
+            _timer.StartCountdown(GetNextAttemptTime());
         }
 
 
         public void Update(float time)
         {
-            _timeBeforeNextAttempt -= time;
+            _timer.Update(time);
 
-            if (_timeBeforeNextAttempt > 0)
+            if (!_timer.IsFinished)
                 return;
 
-            _timeBeforeNextAttempt = GetNextAttemptTime();
+            _timer.StartCountdown(GetNextAttemptTime());
             AttemptToSpawnEnemy();
         }
 

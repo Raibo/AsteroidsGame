@@ -1,4 +1,5 @@
-﻿using Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.Weapons;
+﻿using Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.Physics;
+using Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.Weapons;
 using UnityEngine;
 
 namespace Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.Weapons
@@ -31,7 +32,7 @@ namespace Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.Weapons
 
         private IAmmoProvider GetAmmoProvider()
         {
-            _ammoProvider ??= new AmmoProvider(CooldownTime, GainChargeTime, MaximumCharges, InitialCharges);
+            _ammoProvider ??= new AmmoProvider(new Timer(), new Timer(), CooldownTime, GainChargeTime, MaximumCharges, InitialCharges);
             return _ammoProvider;
         }
     }

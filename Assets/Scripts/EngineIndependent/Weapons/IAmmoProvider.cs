@@ -6,7 +6,7 @@
         public int MaximumCharges { get; }
         public float RemainingNextChargeTime { get; }
         public float RemainingCooldownTime { get; }
-        public bool IsChargeReady { get; }
+        public bool IsReadyToUseCharge { get; }
 
         public bool TryUseCharge();
         public void Update(float time);

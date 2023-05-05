@@ -24,7 +24,7 @@ namespace Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.Ui
 
         private void Update()
         {
-            var laserCooldown = _ammoProvider.IsChargeReady ? 0f : _ammoProvider.RemainingCooldownTime;
+            var laserCooldown = _ammoProvider.RemainingCooldownTime;
 
             Text.text = $"Position = {_physicsObject.Position.X: #0.0};{_physicsObject.Position.Y: #0.0}\n" +
                 $"Angle = {_physicsObject.Rotation: ##0.0}\n" +

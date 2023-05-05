@@ -1,4 +1,5 @@
 ﻿using Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.ObjectLifeCycle.Destruction;
+using Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.Physics;
 using Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.Extensions;
 using UnityEngine;
 
@@ -15,7 +16,7 @@ namespace Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.ObjectLi
 
 
         private void Awake() =>
-            _lifetimeLimiter = new LifetimeLimiter(Destroyable.Entity, Lifetime);
+            _lifetimeLimiter = new LifetimeLimiter(new Timer(), Destroyable.Entity, Lifetime);
 
 
         private void FixedUpdate() =>
