@@ -23,8 +23,8 @@ namespace Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.ObjectLi
 
         public void Create(AsteroidsVector2 origin, AsteroidsVector2 velocity, float rotation)
         {
-            var newObject = Instantiate(Prefab);
-            newObject.transform.position = origin.ToUnityVector2();
+            var position = new Vector3(origin.X, origin.Y, 0f);
+            var newObject = Instantiate(Prefab, position, Quaternion.identity);
 
             var physicsObject = newObject.GetComponent<IPhysicsObject>();
             physicsObject.Rotation = rotation;
