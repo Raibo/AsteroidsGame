@@ -7,7 +7,7 @@
 Ссылка на описание оригинальной игры Asteroids на википедии: [Ссылка en.wikipedia.org](https://en.wikipedia.org/wiki/Asteroids_(video_game))  
 Ссылка на видео, содержащее геймплей оригинальной игры Asteroids: [Ссылка YouTube](https://youtu.be/_TKiRvGfw3Q)
 
-## Структура проекта:
+## Структура проекта
 Выполнено в Unity.
 
 C# проект состоит из двух сборок: EngineIndependent и UnitySpecific.  
