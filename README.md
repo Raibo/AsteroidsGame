@@ -2,6 +2,8 @@
 Этот проект - выполнение тестового задания.  
 Задание состоит в том, чтобы воссоздать игру Asteroids, но с некоторыми отличиями, указанными в ТЗ.  
 
+Ссылка на билд: [Build.rar](https://github.com/Raibo/AsteroidsGame/raw/master/Build.rar)
+
 Отличия описаны в документе по ссылке: [Отличия от оригинальной игры.txt](https://github.com/Raibo/AsteroidsGame/blob/master/Info/%D0%9E%D1%82%D0%BB%D0%B8%D1%87%D0%B8%D1%8F%20%D0%BE%D1%82%20%D0%BE%D1%80%D0%B8%D0%B3%D0%B8%D0%BD%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B9%20%D0%B8%D0%B3%D1%80%D1%8B.txt)  
 Ссылка на ТЗ: [ТЗ серверный программист[506].pdf](https://github.com/Raibo/AsteroidsGame/blob/master/Info/%D0%A2%D0%97%20%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D0%BD%D1%8B%D0%B8%CC%86%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82%5B506%5D.pdf)  
 Ссылка на описание оригинальной игры Asteroids на википедии: [Ссылка en.wikipedia.org](https://en.wikipedia.org/wiki/Asteroids_(video_game))  
