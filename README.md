@@ -10,7 +10,9 @@
 ## Структура проекта:
 Выполнено в Unity.
 
-C# проект состоит из двух сборок:
+C# проект состоит из двух сборок: EngineIndependent и UnitySpecific.  
+Вся игровая логика содержится в EngineIndependent, как и требовалось в задании.  
+UnitySpecific выступает в роли адапрета.  
 
 ![image](https://user-images.githubusercontent.com/8547320/236560701-9d959064-f6f3-4046-bd0e-3e212ff53a7e.png)
 
