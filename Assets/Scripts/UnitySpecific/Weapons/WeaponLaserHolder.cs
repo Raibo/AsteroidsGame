@@ -1,5 +1,5 @@
-﻿using Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.Collisions;
-using Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.Physics;
+﻿using Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.Physics;
+using Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.Physics.Collisions;
 using Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.Weapons;
 using Hudossay.Asteroids.UnitySpecific.Assets.Scripts.UnitySpecific.Extensions;
 using UnityEngine;

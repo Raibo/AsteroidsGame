@@ -1,6 +1,6 @@
-﻿using Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.Collisions;
-using Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.Navigation;
+﻿using Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.Navigation;
 using Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.Physics;
+using Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.Physics.Collisions;
 
 namespace Hudossay.Asteroids.EngineIndependent.Assets.Scripts.EngineIndependent.Weapons
 {
